@@ -5,8 +5,10 @@ import static java.lang.Math.random;
  * @author fcuevas
  */
 public class Batalla {
-    public int tipoDeBatalla;
-    public Entrenador[] entrenadores = new Entrenador[2];
+    protected int tipoDeBatalla;
+    protected Entrenador[] entrenadores = new Entrenador[2];
+    protected int turno;
+    protected int tiempo;
     
     public void iniciarBatalla(Pokemon pkmn1, Pokemon pkmn2){
         System.out.println("Se incia la batalla entre: "+pkmn1.getNombre()+" y "

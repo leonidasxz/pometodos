@@ -21,7 +21,7 @@ public class Pokemon extends EspeciePokemon {
     private int nivel;
     private Habilidad habilidad;
     private MovimientoAprendido[] movimientos = new MovimientoAprendido[4];
-    public String estado;
+    protected String estado;
     
     public int[] PV = new int[2];//EN PV[0] Vida actual, PV[1] Vida maxima
    

@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Campeonato {
     
-    public ArrayList<Batalla> batallas = new ArrayList<Batalla>();
+    protected ArrayList<Batalla> batallas = new ArrayList<Batalla>();
     
     public boolean comprobarMedalla(Entrenador trainer){
         if (8==trainer.getMedallas().length){

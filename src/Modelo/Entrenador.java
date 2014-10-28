@@ -17,6 +17,8 @@ public class Entrenador {
             
     public Entrenador(String nombre){
     this.nombre = nombre;
+    this.region = region;
+    this.medallas = medallas;
     }
 
     public void seleccionarListaPokemon(){

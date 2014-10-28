@@ -11,13 +11,13 @@ package Modelo;
  * @author fcuevas
  */
 public abstract class Movimiento {
-    public String tipo;
-    public int potencia;
-    public int precision;
-    public int[] PP = new int[2]; //EN PP[0] PP's actuales, PP[1] PP's Máximos
-    public int blanco;
-    public String efectoSecundario;
-    public String contacto;
+    protected String tipo;
+    protected int potencia;
+    protected int precision;
+    protected int[] PP = new int[2]; //EN PP[0] PP's actuales, PP[1] PP's Máximos
+    protected int blanco;
+    protected String efectoSecundario;
+    protected String contacto;
     
     public Movimiento(){}
     public Movimiento(String tipo){

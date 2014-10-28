@@ -7,12 +7,20 @@ import Modelo.Batalla; // PRUEBA
 import Modelo.Entrenador;
 import Modelo.Habilidad;
 import Modelo.Pokemon;
+import Vista.VistaPrincipal;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ControladorPrincipal {
+public class ControladorPrincipal implements ActionListener {
 
 
     public static void main(String[] args) {
         System.out.println("Comienza a funcionar");
+        ControladorPrincipal cPrincipal = new ControladorPrincipal();
+        
+        VistaPrincipal vPrincipal = new VistaPrincipal();
+        
+         
         
         Entrenador ash = new Entrenador("ash");
         Entrenador blu = new Entrenador("blu");
@@ -34,6 +42,13 @@ public class ControladorPrincipal {
         System.out.println("Es de la especie: "+imbecil.getEspecie());
         System.out.println("Tiene naturaleza primaria: "+imbecil.getNaturalezaPrimaria());
         
+    }
+    public void simularBatalla()
+    {}
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
