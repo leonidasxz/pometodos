@@ -15,13 +15,16 @@ public class Pokemon extends EspeciePokemon {
     
     private String nombre;
     private String especie;
-    private String naturalezaPrimaria;
-    private String naturalezaSecundaria;
     private int numPokedex;
     private int nivel;
     private Habilidad habilidad;
     private MovimientoAprendido[] movimientos = new MovimientoAprendido[4];
     protected String estado;
+    private int ataque;
+    private int defensa;
+    private int ataqueEspecial;
+    private int defensaEspecial;
+    private int experienciaActual;
     
     public int[] PV = new int[2];//EN PV[0] Vida actual, PV[1] Vida maxima
    
@@ -38,6 +41,10 @@ public class Pokemon extends EspeciePokemon {
         this.habilidad = habilidad;
         this.numPokedex = numPokedex;
         this.nivel = nivel;
+        this.PV[0] = 100;
+        this.PV[1] = 100;
+        
+        System.out.println("A new :"+this.nombre+" has appeared");
     }
     
     

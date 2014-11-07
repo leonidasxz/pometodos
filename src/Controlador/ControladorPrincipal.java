@@ -1,5 +1,4 @@
-// MODIFICADO ULTIMA VEZ: FCA, 7/Oct, 3:19
-// IMPORT MODELO POKEMON VA EN CONTROLADOR PKMN
+
 
 package Controlador;
 
@@ -12,17 +11,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ControladorPrincipal implements ActionListener {
-
+    
+    VistaPrincipal vPrincipal;
+    ControladorBatalla cBatalla;
+    ControladorPrincipal cPrincipal;
+    
+    public ControladorPrincipal(){
+        this.vPrincipal = new VistaPrincipal();
+    }
 
     public static void main(String[] args) {
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
         
-        VistaPrincipal vPrincipal = new VistaPrincipal();
+        
+        cPrincipal.vPrincipal.agregarListener(cPrincipal);
+        
         
          
         
-        Entrenador ash = new Entrenador("ash");
+        /*Entrenador ash = new Entrenador("ash");
         Entrenador blu = new Entrenador("blu");
         Habilidad ninguna = new Habilidad();
         Habilidad todas = new Habilidad();
@@ -36,19 +44,36 @@ public class ControladorPrincipal implements ActionListener {
         
         System.out.println("Parte: "+nombrequeparte);
         
-        
+                
         
         System.out.println("Tu pokemon se llama:"+" "+imbecil.getNombre());
         System.out.println("Es de la especie: "+imbecil.getEspecie());
         System.out.println("Tiene naturaleza primaria: "+imbecil.getNaturalezaPrimaria());
-        
+        */
     }
-    public void simularBatalla()
-    {}
-
+    public void simularBatalla(){
+        cBatalla = new ControladorBatalla(this.vPrincipal);      
+    }
+    
+    
     @Override
-    public void actionPerformed(ActionEvent ae) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void actionPerformed(ActionEvent ae){     
+        int accion = Integer.parseInt(ae.getActionCommand());
+        switch(accion){
+            case 1:
+                System.out.println("opcion 1");
+                this.vPrincipal.setTexto();
+                this.simularBatalla();
+               
+            break;
+            case 2:
+                System.exit(0);
+            break;
+                            
+                
+        }
+    
     }
+ 
     
 }

@@ -3,6 +3,8 @@
 
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author fcuevas
@@ -11,15 +13,16 @@ public class Entrenador {
     
     private String nombre;
     private String region;
-    private Pokemon[] listaPokemons = new Pokemon[6]; // TENTATIVO, LARGO 6
+    private ArrayList<Pokemon> listaPokemons = new ArrayList<Pokemon>(); // TENTATIVO, LARGO 6
     private String[] medallas = new String[8];
-    public int ranking;
+    protected int ranking;
             
     public Entrenador(String nombre){
-    this.nombre = nombre;
-    this.region = region;
-    this.medallas = medallas;
-    }
+        this.nombre = nombre;
+        this.region = region;
+        this.medallas = medallas;
+        System.out.println(this.nombre+" Quiere ser maestro de los pokimons");
+        }
 
     public void seleccionarListaPokemon(){
     }
@@ -68,12 +71,13 @@ public class Entrenador {
         this.region = region;
     }
 
-    public Pokemon[] getListaPokemons() {
+    public ArrayList<Pokemon> getListaPokemons() {
         return listaPokemons;
     }
 
-    public void setListaPokemons(Pokemon[] listaPokemons) {
+    public void setListaPokemons(ArrayList<Pokemon> listaPokemons) {
         this.listaPokemons = listaPokemons;
+        
     }
 
     public String[] getMedallas() {

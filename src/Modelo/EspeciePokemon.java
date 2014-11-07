@@ -12,9 +12,19 @@ import java.util.ArrayList;
  *
  * @author fcuevas
  */
+
 public abstract class EspeciePokemon {
     private String nombre;
-    public ArrayList<PosibleMovimiento> posiblesMovimientos = new ArrayList<PosibleMovimiento>();
+    protected String naturalezaPrimaria;
+    protected String naturalezaSecundaria;
+    protected ArrayList<PosibleMovimiento> posiblesMovimientos = new 
+        ArrayList<PosibleMovimiento>();
+    
+    public PosibleMovimiento restriccionMovimientos(String nombre){
+        PosibleMovimiento hola = new PosibleMovimiento();
+        return hola;
+    }
+    
     
 
     
