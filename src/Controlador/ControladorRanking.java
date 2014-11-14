@@ -15,7 +15,7 @@ public class ControladorRanking {
     
     private int rankingEntrenador1;
     private int rankingEntrenador2;
-    public boolean rankingActualizado;
+    public boolean rankingActualizado = false;
     
     public void actualizarRanking(Entrenador entrenador1, Entrenador entrenador2){
         /*
