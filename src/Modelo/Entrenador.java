@@ -15,6 +15,7 @@ public class Entrenador {
     private String region;
     private ArrayList<Pokemon> listaPokemons = new ArrayList<Pokemon>(); // TENTATIVO, LARGO 6
     private String[] medallas = new String[8];
+    public boolean esGanador;
     protected int ranking;
             
     public Entrenador(String nombre){
@@ -22,6 +23,7 @@ public class Entrenador {
         this.region = region;
         this.medallas = medallas;
         System.out.println(this.nombre+" Quiere ser maestro de los pokimons");
+        this.esGanador = false;
         }
 
     public void seleccionarListaPokemon(){
@@ -42,8 +44,12 @@ public class Entrenador {
         
     }
     
-    
-    
+    public int getRanking(){
+        return ranking;
+    }
+    public void setRanking(int ranking){
+        this.ranking = ranking;
+    }
     
     
     
