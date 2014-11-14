@@ -13,6 +13,10 @@ import Modelo.Entrenador;
  */
 public class ControladorRanking {
     
+    private int rankingEntrenador1;
+    private int rankingEntrenador2;
+    public boolean rankingActualizado;
+    
     public void actualizarRanking(Entrenador entrenador1, Entrenador entrenador2){
         /*
         Consideramos un ranking que parte desde 0
@@ -27,8 +31,8 @@ public class ControladorRanking {
         10, 15, 20
         
         */
-        int rankingEntrenador1 = entrenador1.getRanking();
-        int rankingEntrenador2 = entrenador2.getRanking();
+        rankingEntrenador1 = entrenador1.getRanking();
+        rankingEntrenador2 = entrenador2.getRanking();
         
         if (entrenador1.esGanador){
             if (rankingEntrenador1 >= rankingEntrenador2){
@@ -100,5 +104,6 @@ public class ControladorRanking {
         if (rankingEntrenador2 < 0){
             rankingEntrenador2 = 0;
         }
+        rankingActualizado = true;
     }    
 }
