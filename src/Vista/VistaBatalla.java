@@ -6,9 +6,13 @@
 package Vista;
 
 import Modelo.Pokemon;
+import java.awt.Component;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.DefaultListCellRenderer;
 import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import javax.swing.JList;
 
 /**
  *
@@ -23,6 +27,7 @@ public class VistaBatalla extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         Capa2.setVisible(false);
+        Capa3.setVisible(false);
     }
 
     /**
@@ -34,6 +39,14 @@ public class VistaBatalla extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Capa3 = new javax.swing.JLayeredPane();
+        turnoLb = new javax.swing.JLabel();
+        pokeActualLb = new javax.swing.JLabel();
+        pokeActualNombreLb = new javax.swing.JLabel();
+        ataque1 = new javax.swing.JButton();
+        ataque2 = new javax.swing.JButton();
+        ataque3 = new javax.swing.JButton();
+        ataque4 = new javax.swing.JButton();
         Capa1 = new javax.swing.JLayeredPane();
         texto = new javax.swing.JLabel();
         btSimple = new javax.swing.JButton();
@@ -46,6 +59,77 @@ public class VistaBatalla extends javax.swing.JDialog {
         jList1 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        turnoLb.setText("Turno:");
+
+        pokeActualLb.setText("Pokemon Actual:");
+
+        pokeActualNombreLb.setText("jLabel4");
+
+        ataque1.setText("jButton1");
+
+        ataque2.setText("jButton2");
+        ataque2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ataque2ActionPerformed(evt);
+            }
+        });
+
+        ataque3.setText("jButton3");
+
+        ataque4.setText("jButton4");
+
+        javax.swing.GroupLayout Capa3Layout = new javax.swing.GroupLayout(Capa3);
+        Capa3.setLayout(Capa3Layout);
+        Capa3Layout.setHorizontalGroup(
+            Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Capa3Layout.createSequentialGroup()
+                .addGroup(Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Capa3Layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(turnoLb, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Capa3Layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pokeActualLb)
+                            .addComponent(ataque1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(Capa3Layout.createSequentialGroup()
+                                .addGap(124, 124, 124)
+                                .addComponent(pokeActualNombreLb))
+                            .addGroup(Capa3Layout.createSequentialGroup()
+                                .addGap(35, 35, 35)
+                                .addComponent(ataque2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(37, 37, 37)
+                                .addComponent(ataque3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(ataque4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
+        Capa3Layout.setVerticalGroup(
+            Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Capa3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(turnoLb)
+                .addGap(50, 50, 50)
+                .addGroup(Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(pokeActualLb)
+                    .addComponent(pokeActualNombreLb))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addGroup(Capa3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ataque1)
+                    .addComponent(ataque2)
+                    .addComponent(ataque3)
+                    .addComponent(ataque4))
+                .addGap(79, 79, 79))
+        );
+        Capa3.setLayer(turnoLb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(pokeActualLb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(pokeActualNombreLb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(ataque1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(ataque2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(ataque3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Capa3.setLayer(ataque4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         texto.setText("Seleccione tipo de combate");
 
@@ -76,7 +160,7 @@ public class VistaBatalla extends javax.swing.JDialog {
                 .addComponent(btDoble)
                 .addGap(94, 94, 94)
                 .addComponent(btTriple)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Capa1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(texto)
@@ -87,7 +171,7 @@ public class VistaBatalla extends javax.swing.JDialog {
             .addGroup(Capa1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(texto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
                 .addGroup(Capa1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSimple)
                     .addComponent(btTriple)
@@ -134,16 +218,16 @@ public class VistaBatalla extends javax.swing.JDialog {
                         .addGroup(Capa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         Capa2Layout.setVerticalGroup(
             Capa2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Capa2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bAceptar)
                 .addContainerGap())
         );
@@ -155,31 +239,27 @@ public class VistaBatalla extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(Capa1)
-                    .addContainerGap()))
+            .addComponent(Capa1)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(Capa2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(0, 24, Short.MAX_VALUE)
+                    .addComponent(Capa3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(7, 7, 7)
-                    .addComponent(Capa1)
-                    .addGap(7, 7, 7)))
+            .addComponent(Capa1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(Capa2)
                     .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Capa3))
         );
 
         pack();
@@ -200,6 +280,10 @@ public class VistaBatalla extends javax.swing.JDialog {
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_jList1ValueChanged
+
+    private void ataque2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataque2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ataque2ActionPerformed
    public Object getValorSeleccionado(){
        return jList1.getSelectedValue();
    }
@@ -220,20 +304,46 @@ public class VistaBatalla extends javax.swing.JDialog {
    public void esconderCapa1(){
         this.Capa1.setVisible(false);
    }
+   public void esconderCapa2(){
+       this.Capa2.setVisible(false);
+   }
    public void mostrarCapa2(){
         this.Capa2.setVisible(true);}
    
+   public void mostrarCapa3(){
+        this.Capa3.setVisible(true);
+   }
+   
    public void agregarEnLista(ArrayList<Pokemon> listaPokemon){
-       DefaultListModel elementosLista = new DefaultListModel();
-       for(Pokemon pokemon : listaPokemon){
+            
+       
+        DefaultListModel elementosLista = new DefaultListModel();
+        for(Pokemon pokemon : listaPokemon){
             elementosLista.addElement(pokemon.getNombre());
-       jList1.setModel(elementosLista);
+        jList1.setModel(elementosLista);
+       
+              
        }
+        
+       
    }
 
+       
+       
+       
+       
+       
+       
+   
+               
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane Capa1;
     private javax.swing.JLayeredPane Capa2;
+    private javax.swing.JLayeredPane Capa3;
+    private javax.swing.JButton ataque1;
+    private javax.swing.JButton ataque2;
+    private javax.swing.JButton ataque3;
+    private javax.swing.JButton ataque4;
     private javax.swing.JButton bAceptar;
     private javax.swing.JButton btDoble;
     private javax.swing.JButton btSimple;
@@ -241,6 +351,9 @@ public class VistaBatalla extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel pokeActualLb;
+    private javax.swing.JLabel pokeActualNombreLb;
     private javax.swing.JLabel texto;
+    private javax.swing.JLabel turnoLb;
     // End of variables declaration//GEN-END:variables
 }

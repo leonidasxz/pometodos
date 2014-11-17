@@ -8,6 +8,7 @@ package Controlador;
 import Vista.VistaBatalla;
 import Modelo.Batalla;
 import Modelo.Entrenador;
+import Modelo.MovimientoAprendido;
 import Modelo.Pokemon;
 import Vista.VistaPrincipal;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,9 @@ public class ControladorBatalla implements ActionListener{
     ControladorEquipo cEquipo;
     boolean esperar = true;
     Object valorSeleccionado;
-    int player = 0;
+    int turno = 0;
+    MovimientoAprendido movEnBotones0;
+    MovimientoAprendido movEnBotones1;
     
     
     public ControladorBatalla(javax.swing.JFrame nombreVista){
@@ -47,14 +50,42 @@ public class ControladorBatalla implements ActionListener{
         
     }
     public void agregarALista(){
-        this.vBatalla.agregarEnLista(cEquipo.trainers[player].getListaPokemons());
+        this.vBatalla.agregarEnLista(cEquipo.trainers[turno].getListaPokemons());
         
     }
     
     public void iniciarPokemon(Object vSeleccion){
         System.out.println("El poke seleccionado es: "+vSeleccion);
+        for(Entrenador entrenador: this.cEquipo.trainers){
+            for(Pokemon pokes:entrenador.getListaPokemons()){
+                if(vSeleccion==pokes.getNombre()){
+                    System.out.println("Su seleccion es correcta");
+                    
+                    
+                }
+            }
+        }
+                    
+                    
+                    
+        
+        
+        
         
     }
+    public void iniciarBatalla(){
+        while(batalla.getFuncionando()==true){
+            batalla.setTurno(0);
+            cEquipo.trainers[batalla.getTurno()].batallar();
+        }
+    }
+    public void asignarMovABotones(){
+        {
+            
+        }
+    
+    }
+    
     
     @Override
     public void actionPerformed(ActionEvent ae){     
@@ -75,7 +106,7 @@ public class ControladorBatalla implements ActionListener{
             case 4:
                valorSeleccionado = this.vBatalla.getValorSeleccionado();
                this.iniciarPokemon(valorSeleccionado);
-               player++;
+               turno++;
                this.agregarALista();
                this.vBatalla.bAceptarSegundoClick();
                
@@ -84,12 +115,21 @@ public class ControladorBatalla implements ActionListener{
             case 5:
                 valorSeleccionado = this.vBatalla.getValorSeleccionado();
                 this.iniciarPokemon(valorSeleccionado);
+                vBatalla.esconderCapa2();
+                vBatalla.mostrarCapa3();
+                turno=0;
+                this.iniciarBatalla();
                 break;
                 
                 
         }
+        
     }
     
     
     
 }
+            
+            
+            
+            

@@ -11,6 +11,7 @@ package Modelo;
  * @author fcuevas
  */
 public abstract class Movimiento {
+    protected String nombre;
     protected String tipo;
     protected int potencia;
     protected int precision;
@@ -20,7 +21,8 @@ public abstract class Movimiento {
     protected String contacto;
     
     public Movimiento(){}
-    public Movimiento(String tipo){
+    public Movimiento(String nombre,String tipo){
+        this.nombre=nombre;
         this.tipo=tipo;
     }
     
