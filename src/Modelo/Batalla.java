@@ -5,6 +5,7 @@ import static java.lang.Math.random;
  * @author fcuevas
  */
 public class Batalla {
+    protected boolean funcionando;
     protected int tipoDeBatalla;
     protected Entrenador[] entrenadores = new Entrenador[2];
     protected int turno;
@@ -38,6 +39,48 @@ public class Batalla {
         
         
     }
-            
+    
+    public boolean getFuncionando(){
+        return this.funcionando;
+    }
+    public void setFuncionando(boolean funcionando) {
+        System.out.println("Batalla online");
+        this.funcionando = funcionando;
+    }
+
+    public int getTipoDeBatalla() {
+        return tipoDeBatalla;
+    }
+
+    public void setTipoDeBatalla(int tipoDeBatalla) {
+        this.tipoDeBatalla = tipoDeBatalla;
+    }
+
+    public Entrenador[] getEntrenadores() {
+        return entrenadores;
+    }
+
+    public void setEntrenadores(Entrenador[] entrenadores) {
+        this.entrenadores = entrenadores;
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public int getTiempo() {
+        return tiempo;
+    }
+
+    public void setTiempo(int tiempo) {
+        this.tiempo = tiempo;
+    }
+    
     
 }
+            
+   

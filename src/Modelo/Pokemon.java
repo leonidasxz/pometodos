@@ -45,6 +45,8 @@ public class Pokemon extends EspeciePokemon {
         this.PV[1] = 100;
         
         System.out.println("A new :"+this.nombre+" has appeared");
+        movimientos[0] = new MovimientoAprendido("Placaje","normal");
+        movimientos[1] = new MovimientoAprendido("Latigazo","normal");
     }
     
     

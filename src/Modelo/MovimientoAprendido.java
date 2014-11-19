@@ -12,4 +12,10 @@ package Modelo;
  */
 public class MovimientoAprendido extends Movimiento {
     
+    public MovimientoAprendido(){}
+    public MovimientoAprendido(String nombre,String tipo){
+        this.nombre=nombre;
+        this.tipo=tipo;
+    }
+    
 }
