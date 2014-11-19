@@ -11,6 +11,9 @@ public class Batalla {
     protected int turno;
     protected int tiempo;
     
+    public Batalla(){
+        funcionando = true;
+    }
     public void iniciarBatalla(Pokemon pkmn1, Pokemon pkmn2){
         System.out.println("Se incia la batalla entre: "+pkmn1.getNombre()+" y "
         +pkmn2.getNombre());
@@ -68,6 +71,13 @@ public class Batalla {
         return turno;
     }
 
+    public void avanzarTurno(){
+        if(this.turno>1)
+            turno=0;
+        else
+            turno++;
+    }
+    
     public void setTurno(int turno) {
         this.turno = turno;
     }

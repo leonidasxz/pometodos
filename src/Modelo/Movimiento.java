@@ -25,5 +25,70 @@ public abstract class Movimiento {
         this.nombre=nombre;
         this.tipo=tipo;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getPotencia() {
+        return potencia;
+    }
+
+    public void setPotencia(int potencia) {
+        this.potencia = potencia;
+    }
+
+    public int getPrecision() {
+        return precision;
+    }
+
+    public void setPrecision(int precision) {
+        this.precision = precision;
+    }
+
+    public int[] getPP() {
+        return PP;
+    }
+
+    public void setPP(int[] PP) {
+        this.PP = PP;
+    }
+
+    public int getBlanco() {
+        return blanco;
+    }
+
+    public void setBlanco(int blanco) {
+        this.blanco = blanco;
+    }
+
+    public String getEfectoSecundario() {
+        return efectoSecundario;
+    }
+
+    public void setEfectoSecundario(String efectoSecundario) {
+        this.efectoSecundario = efectoSecundario;
+    }
+
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+    
     
 }

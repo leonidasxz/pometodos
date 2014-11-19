@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Modelo.Movimiento;
 import Modelo.Pokemon;
 import java.awt.Component;
 import java.awt.event.ActionListener;
@@ -328,7 +329,18 @@ public class VistaBatalla extends javax.swing.JDialog {
        
    }
 
+   public void setBotones(Movimiento[] movimientos,String nombre){
+       System.out.println("Seteando botones");
+      ataque1.setText(movimientos[0].getNombre());
+      ataque2.setText(movimientos[1].getNombre());
+      ataque3.setText(movimientos[2].getNombre());
+      ataque4.setText(movimientos[3].getNombre());
+      System.out.println("Botones seteados");
+      pokeActualNombreLb.setText(nombre);
+      
+      
        
+   }
        
        
        

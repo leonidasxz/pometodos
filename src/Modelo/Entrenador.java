@@ -11,6 +11,7 @@ import java.util.ArrayList;
  */
 public class Entrenador {
     
+    Pokemon inicial;
     private String nombre;
     private String region;
     private ArrayList<Pokemon> listaPokemons = new ArrayList<Pokemon>(); // TENTATIVO, LARGO 6
@@ -27,11 +28,23 @@ public class Entrenador {
     public void seleccionarListaPokemon(){
     }
     public void batallar(){
+        System.out.println("Es tu turno mr"+nombre);
+        
     }
     public void seleccionarMovimiento(Pokemon pokemon, int i){
         
-        
+       
     }
+    
+    public void setInicial(Pokemon pokemon){
+        inicial = pokemon;
+        System.out.println("el incial es"+inicial.getNombre());
+       
+    }
+    public Pokemon getInicial(){
+        return inicial;
+    }
+            
     public void elegirPokemonBatalla(){
         
     }

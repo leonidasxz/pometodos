@@ -8,6 +8,7 @@ package Controlador;
 import Vista.VistaBatalla;
 import Modelo.Batalla;
 import Modelo.Entrenador;
+import Modelo.Movimiento;
 import Modelo.MovimientoAprendido;
 import Modelo.Pokemon;
 import Vista.VistaPrincipal;
@@ -21,7 +22,7 @@ public class ControladorBatalla implements ActionListener{
     Batalla batalla;
     ControladorPokemon cPokemon;
     ControladorEquipo cEquipo;
-    boolean esperar = true;
+    boolean esperar = false;
     Object valorSeleccionado;
     int turno = 0;
     MovimientoAprendido movEnBotones0;
@@ -60,6 +61,8 @@ public class ControladorBatalla implements ActionListener{
             for(Pokemon pokes:entrenador.getListaPokemons()){
                 if(vSeleccion==pokes.getNombre()){
                     System.out.println("Su seleccion es correcta");
+                    entrenador.setInicial(pokes);
+                    
                     
                     
                 }
@@ -74,15 +77,21 @@ public class ControladorBatalla implements ActionListener{
         
     }
     public void iniciarBatalla(){
+        batalla = new Batalla();
         while(batalla.getFuncionando()==true){
             batalla.setTurno(0);
             cEquipo.trainers[batalla.getTurno()].batallar();
-        }
-    }
-    public void asignarMovABotones(){
-        {
+            this.asignarMovABotones(cEquipo.trainers[batalla.getTurno()].getInicial());
+            batalla.setFuncionando(esperar);
+                
             
         }
+    }
+    public void asignarMovABotones(Pokemon pokemon){
+        vBatalla.setBotones(pokemon.getMovimientos(),pokemon.getNombre());
+        
+            
+        
     
     }
     
@@ -119,6 +128,7 @@ public class ControladorBatalla implements ActionListener{
                 vBatalla.mostrarCapa3();
                 turno=0;
                 this.iniciarBatalla();
+                System.out.println("A NEW CHALLENGER HAS APROACHED");
                 break;
                 
                 
