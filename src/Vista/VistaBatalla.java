@@ -68,6 +68,11 @@ public class VistaBatalla extends javax.swing.JDialog {
         pokeActualNombreLb.setText("jLabel4");
 
         ataque1.setText("jButton1");
+        ataque1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ataque1ActionPerformed(evt);
+            }
+        });
 
         ataque2.setText("jButton2");
         ataque2.addActionListener(new java.awt.event.ActionListener() {
@@ -77,8 +82,18 @@ public class VistaBatalla extends javax.swing.JDialog {
         });
 
         ataque3.setText("jButton3");
+        ataque3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ataque3ActionPerformed(evt);
+            }
+        });
 
         ataque4.setText("jButton4");
+        ataque4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ataque4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Capa3Layout = new javax.swing.GroupLayout(Capa3);
         Capa3.setLayout(Capa3Layout);
@@ -283,8 +298,20 @@ public class VistaBatalla extends javax.swing.JDialog {
     }//GEN-LAST:event_jList1ValueChanged
 
     private void ataque2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataque2ActionPerformed
-        // TODO add your handling code here:
+    this.nombreApretado = ataque2.getText();    // TODO add your handling code here:
     }//GEN-LAST:event_ataque2ActionPerformed
+
+    private void ataque1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataque1ActionPerformed
+    this.nombreApretado = ataque1.getText();        // TODO add your handling code here:
+    }//GEN-LAST:event_ataque1ActionPerformed
+
+    private void ataque3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataque3ActionPerformed
+    this.nombreApretado = ataque3.getText();     // TODO add your handling code here:
+    }//GEN-LAST:event_ataque3ActionPerformed
+
+    private void ataque4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ataque4ActionPerformed
+    this.nombreApretado = ataque4.getText();         // TODO add your handling code here:
+    }//GEN-LAST:event_ataque4ActionPerformed
    public Object getValorSeleccionado(){
        return jList1.getSelectedValue();
    }
@@ -298,10 +325,13 @@ public class VistaBatalla extends javax.swing.JDialog {
         bAceptar.addActionListener(copucha);
         bAceptar.setActionCommand("4");
         ataque1.addActionListener(copucha);
+        ataque1.setActionCommand("6");
         ataque2.addActionListener(copucha);
+        ataque2.setActionCommand("6");
         ataque3.addActionListener(copucha);
+        ataque3.setActionCommand("6");
         ataque4.addActionListener(copucha);
-        
+        ataque4.setActionCommand("6");
                 }
    public void bAceptarSegundoClick(){
        this.bAceptar.setActionCommand("5");
@@ -346,11 +376,13 @@ public class VistaBatalla extends javax.swing.JDialog {
        
    }
        
+   public String getNombreApretado(){
+       return this.nombreApretado;
+   }    
        
        
        
-       
-   
+   private String nombreApretado;
                
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLayeredPane Capa1;

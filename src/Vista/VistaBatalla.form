@@ -135,6 +135,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton1"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ataque1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ataque2">
           <Properties>
@@ -148,11 +151,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton3"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ataque3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="ataque4">
           <Properties>
             <Property name="text" type="java.lang.String" value="jButton4"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ataque4ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
