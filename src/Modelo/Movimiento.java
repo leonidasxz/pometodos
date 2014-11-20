@@ -25,6 +25,10 @@ public abstract class Movimiento {
         this.nombre=nombre;
         this.tipo=tipo;
     }
+    public Movimiento usarMovimiento(Movimiento apretado){
+        return apretado;            
+    }
+    
 
     public String getNombre() {
         return nombre;

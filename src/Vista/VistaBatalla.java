@@ -297,6 +297,10 @@ public class VistaBatalla extends javax.swing.JDialog {
         btTriple.setActionCommand("3");
         bAceptar.addActionListener(copucha);
         bAceptar.setActionCommand("4");
+        ataque1.addActionListener(copucha);
+        ataque2.addActionListener(copucha);
+        ataque3.addActionListener(copucha);
+        ataque4.addActionListener(copucha);
         
                 }
    public void bAceptarSegundoClick(){

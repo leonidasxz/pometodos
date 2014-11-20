@@ -130,6 +130,12 @@ public class ControladorBatalla implements ActionListener{
                 this.iniciarBatalla();
                 System.out.println("A NEW CHALLENGER HAS APROACHED");
                 break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
                 
                 
         }
