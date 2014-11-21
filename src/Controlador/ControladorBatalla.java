@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 
 
 public class ControladorBatalla implements ActionListener{
-    
+    int daño;
     VistaBatalla vBatalla;
     Batalla batalla;
     ControladorPokemon cPokemon;
@@ -65,6 +65,7 @@ public class ControladorBatalla implements ActionListener{
                     
                     
                     
+                    
                 }
             }
         }
@@ -78,23 +79,59 @@ public class ControladorBatalla implements ActionListener{
     }
     public void iniciarBatalla(){
         batalla = new Batalla();
-        while(batalla.getFuncionando()==true){
-            batalla.setTurno(0);
-            cEquipo.trainers[batalla.getTurno()].batallar();
-            this.asignarMovABotones(cEquipo.trainers[batalla.getTurno()].getInicial());
-            batalla.setFuncionando(esperar);
-                
+        System.out.println("Se comienza a iniciar los activos");
+        System.out.println(batalla.getTurno());
+        cEquipo.trainers[batalla.getTurno()].setActivo(cEquipo.trainers[batalla.getTurno()].getInicial());
+        cEquipo.trainers[this.controlTurnos()].setActivo(cEquipo.trainers[controlTurnos()].getInicial());
+        System.out.println("Asignados los activos");
+        
+        
+        
             
-        }
+            
+        cEquipo.trainers[batalla.getTurno()].batallar();
+            
+            
+        this.asignarMovABotones(cEquipo.trainers[batalla.getTurno()].getActivo());
+                  
+            
+        
+    }
+    public void siguienteTurno(){
+        
+        this.asignarMovABotones(cEquipo.trainers[batalla.getTurno()].getActivo());
+        
+        
     }
     public void asignarMovABotones(Pokemon pokemon){
         vBatalla.setBotones(pokemon.getMovimientos(),pokemon.getNombre());
-        
-            
+    }
+    public void asignarDaño(int dmg,Pokemon pokemon){
+        pokemon.setPV(pokemon.getPV()[0]-dmg);
+        System.out.println(pokemon.getNombre()+" ha hecho "+dmg+" de daño!!! OMG!");
+        if (pokemon.getPV()[0]==0){
+            this.finalizarBatalla();
+        }
         
     
     }
-    
+    public int controlTurnos(){
+        if(batalla.getTurno()+1>1)
+            return 0;
+        else{
+            return 1;
+        }
+    }
+    public void usarMovimiento(String nombre){
+        for(Movimiento movimiento:cEquipo.trainers[batalla.getTurno()].getActivo().getMovimientos()){
+        if(movimiento.getNombre().equals(nombre)&&movimiento.getPP()[0]!=0){
+            int daño= movimiento.getPotencia();
+            //cPokemon.asignarDaño(daño);
+            
+        }
+        }
+        
+    }
     
     @Override
     public void actionPerformed(ActionEvent ae){     
@@ -125,19 +162,28 @@ public class ControladorBatalla implements ActionListener{
                 valorSeleccionado = this.vBatalla.getValorSeleccionado();
                 this.iniciarPokemon(valorSeleccionado);
                 vBatalla.esconderCapa2();
+                System.out.println("capa 2 escondida");
                 vBatalla.mostrarCapa3();
                 turno=0;
-                this.iniciarBatalla();
                 System.out.println("A NEW CHALLENGER HAS APROACHED");
+                this.iniciarBatalla();
+                
                 break;
             case 6:
-                
+                this.usarMovimiento(vBatalla.getNombreApretado());
+                this.asignarDaño(daño, cEquipo.trainers[this.controlTurnos()].getActivo());
+                batalla.avanzarTurno();
+                this.siguienteTurno();
                 break;
             
                 
                 
         }
         
+    }
+
+    private void finalizarBatalla() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

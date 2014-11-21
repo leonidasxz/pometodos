@@ -17,6 +17,7 @@ public class Entrenador {
     private ArrayList<Pokemon> listaPokemons = new ArrayList<Pokemon>(); // TENTATIVO, LARGO 6
     private String[] medallas = new String[8];
     protected int ranking;
+    Pokemon activo;
             
     public Entrenador(String nombre){
         this.nombre = nombre;
@@ -44,6 +45,15 @@ public class Entrenador {
     public Pokemon getInicial(){
         return inicial;
     }
+
+    public Pokemon getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Pokemon activo) {
+        this.activo = activo;
+    }
+    
             
     public void elegirPokemonBatalla(){
         

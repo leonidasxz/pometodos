@@ -26,7 +26,7 @@ public class Pokemon extends EspeciePokemon {
     private int defensaEspecial;
     private int experienciaActual;
     
-    public int[] PV = new int[2];//EN PV[0] Vida actual, PV[1] Vida maxima
+    private int[] PV = new int[2];//EN PV[0] Vida actual, PV[1] Vida maxima
    
     
 
@@ -136,6 +136,65 @@ public class Pokemon extends EspeciePokemon {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+
+    public void setAtaque(int ataque) {
+        this.ataque = ataque;
+    }
+
+    public int getDefensa() {
+        return defensa;
+    }
+
+    public void setDefensa(int defensa) {
+        this.defensa = defensa;
+    }
+
+    public int getAtaqueEspecial() {
+        return ataqueEspecial;
+    }
+
+    public void setAtaqueEspecial(int ataqueEspecial) {
+        this.ataqueEspecial = ataqueEspecial;
+    }
+
+    public int getDefensaEspecial() {
+        return defensaEspecial;
+    }
+
+    public void setDefensaEspecial(int defensaEspecial) {
+        this.defensaEspecial = defensaEspecial;
+    }
+
+    public int getExperienciaActual() {
+        return experienciaActual;
+    }
+
+    public void setExperienciaActual(int experienciaActual) {
+        this.experienciaActual = experienciaActual;
+    }
+
+    public int[] getPV() {
+        return PV;
+    }
+
+    public void setPV(int[] PV) {
+        this.PV = PV;
+    }
+    public void setPV(int PV){
+        this.PV[0] = PV;
     }
             
 }

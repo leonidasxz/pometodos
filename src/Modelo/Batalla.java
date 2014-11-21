@@ -8,19 +8,20 @@ public class Batalla {
     protected boolean funcionando;
     protected int tipoDeBatalla;
     protected Entrenador[] entrenadores = new Entrenador[2];
-    protected int turno;
+    private int turno;
     protected int tiempo;
     
     public Batalla(){
         funcionando = true;
+        turno = 0;
     }
     public void iniciarBatalla(Pokemon pkmn1, Pokemon pkmn2){
-        System.out.println("Se incia la batalla entre: "+pkmn1.getNombre()+" y "
+        /*System.out.println("Se incia la batalla entre: "+pkmn1.getNombre()+" y "
         +pkmn2.getNombre());
         
         pkmn1.PV[0] = pkmn1.PV[1];
         pkmn2.PV[0] = pkmn2.PV[1];
-        
+        */
         
     }
     public String quienParte(Entrenador trainer1, Entrenador trainer2){
@@ -68,11 +69,11 @@ public class Batalla {
     }
 
     public int getTurno() {
-        return turno;
+        return this.turno;
     }
 
     public void avanzarTurno(){
-        if(this.turno>1)
+        if(this.turno>=1)
             turno=0;
         else
             turno++;

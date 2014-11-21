@@ -12,4 +12,7 @@ package Controlador;
  */
 public class ControladorPokemon {
     
+    
+    
+    
 }
