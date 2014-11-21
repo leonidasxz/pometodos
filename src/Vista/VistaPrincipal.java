@@ -111,6 +111,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public void setTexto(){
         this.texto.setText("Iniciando Batalla");
     }
+    public void setTexteichon(){
+        
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cerrar;
