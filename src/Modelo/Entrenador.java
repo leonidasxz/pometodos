@@ -18,6 +18,7 @@ public class Entrenador {
     private String[] medallas = new String[8];
     protected int ranking;
     Pokemon activo;
+    public boolean esGanador;
             
     public Entrenador(String nombre){
         this.nombre = nombre;
@@ -109,6 +110,14 @@ public class Entrenador {
 
     public void setMedallas(String[] medallas) {
         this.medallas = medallas;
+    }
+    
+    public int getRanking(){
+        return this.ranking;
+    }
+    
+    public void setRanking (int ranking){
+        this.ranking = ranking;
     }
     
     
