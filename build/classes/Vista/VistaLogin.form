@@ -30,7 +30,7 @@
                   <Component id="labelNombreUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="labelContrasena" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="labelConfirmarContrasena" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="botonNuevoUsuario" alignment="0" pref="148" max="32767" attributes="0"/>
+                  <Component id="botonNuevoUsuario" alignment="0" max="32767" attributes="0"/>
                   <Component id="botonConfirmar" alignment="0" max="32767" attributes="0"/>
                   <Component id="botonEntrar" alignment="1" max="32767" attributes="0"/>
                   <Component id="fieldConfirmacionContrasena" alignment="1" max="32767" attributes="0"/>

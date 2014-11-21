@@ -48,7 +48,7 @@ public class ControladorEquipo {
                         pokemons[contador]= new Pokemon("RatadeFuego", "charmander", "fuego", null, null, 2, 1);
                         break;
                     case 3:
-                        pokemons[contador]= new Pokemon("TortugaCulia", "squirtle", "agua", null, null, 3, 1);
+                        pokemons[contador]= new Pokemon("TortugaHermosa", "squirtle", "agua", null, null, 3, 1);
                         break;
                     case 4:
                         pokemons[contador]= new Pokemon("Plantito", "bulbasaur", "planta", null, null, 4, 1);

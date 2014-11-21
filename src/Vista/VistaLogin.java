@@ -106,7 +106,7 @@ public class VistaLogin extends javax.swing.JFrame {
                     .addComponent(labelNombreUsuario)
                     .addComponent(labelContrasena)
                     .addComponent(labelConfirmarContrasena)
-                    .addComponent(botonNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                    .addComponent(botonNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fieldConfirmacionContrasena, javax.swing.GroupLayout.Alignment.TRAILING)

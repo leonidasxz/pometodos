@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 
 
 public class ControladorBatalla implements ActionListener{
-    int daño;
+    int danhino;
     VistaBatalla vBatalla;
     Batalla batalla;
     ControladorPokemon cPokemon;
@@ -106,11 +106,15 @@ public class ControladorBatalla implements ActionListener{
     public void asignarMovABotones(Pokemon pokemon){
         vBatalla.setBotones(pokemon.getMovimientos(),pokemon.getNombre());
     }
-    public void asignarDaño(int dmg,Pokemon pokemon){
+    public void asignarDanhino(int dmg,Pokemon pokemon){
         pokemon.setPV(pokemon.getPV()[0]-dmg);
-        System.out.println(pokemon.getNombre()+" ha hecho "+dmg+" de daño!!! OMG!");
-        if (pokemon.getPV()[0]==0){
-            this.finalizarBatalla();
+        if (dmg>0){
+            System.out.println("le han hecho "+dmg+" de daño a"+pokemon.getNombre()+"!!! OMG!");
+        }
+        else{
+            if (pokemon.getPV()[0]==0){
+                this.finalizarBatalla();
+            }
         }
         
     
@@ -125,8 +129,8 @@ public class ControladorBatalla implements ActionListener{
     public void usarMovimiento(String nombre){
         for(Movimiento movimiento:cEquipo.trainers[batalla.getTurno()].getActivo().getMovimientos()){
         if(movimiento.getNombre().equals(nombre)&&movimiento.getPP()[0]!=0){
-            int daño= movimiento.getPotencia();
-            //cPokemon.asignarDaño(daño);
+            int danhino= movimiento.getPotencia();
+            //cPokemon.asignarDanhino(danhino);
             
         }
         }
@@ -171,7 +175,7 @@ public class ControladorBatalla implements ActionListener{
                 break;
             case 6:
                 this.usarMovimiento(vBatalla.getNombreApretado());
-                this.asignarDaño(daño, cEquipo.trainers[this.controlTurnos()].getActivo());
+                this.asignarDanhino(danhino, cEquipo.trainers[this.controlTurnos()].getActivo());
                 batalla.avanzarTurno();
                 this.siguienteTurno();
                 break;
@@ -186,8 +190,7 @@ public class ControladorBatalla implements ActionListener{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
-    
+
 }
             
             

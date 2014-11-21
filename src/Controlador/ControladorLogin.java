@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 public class ControladorLogin implements ActionListener {
     
 
+    ControladorPrincipal cp;
     VistaLogin vistaLogin;
     private boolean existeUsuario;
     public boolean usuarioLogueado;
@@ -34,13 +35,14 @@ public class ControladorLogin implements ActionListener {
     private ResultSet resultSet;
     
     public static void main(String[] args) throws SQLException{
-        ControladorLogin cLogin = new ControladorLogin();
+        //ControladorLogin cLogin = new ControladorLogin();
     }
         
     public ControladorLogin(){
         vistaLogin = new VistaLogin();
-        vistaLogin.setVisible(true);
         vistaLogin.agregarListeners(this);
+        vistaLogin.setVisible(true);
+        
         
         //Base de datos
         this.DBHost = "jdbc:derby://localhost:1527/PokemonUsuarios";
@@ -77,6 +79,10 @@ public class ControladorLogin implements ActionListener {
         }
         if (usuarioCorrecto && contrasenaCorrecta){
             usuarioLogueado = true;
+            vistaLogin.setVisible(false);
+            synchronized(this){
+                notify();
+            }
         }
         System.out.println(usuarioLogueado);        
         return usuarioLogueado;
@@ -131,6 +137,11 @@ public class ControladorLogin implements ActionListener {
         return false;
     }
     
+    public void notificar(ControladorPrincipal controlador){
+        synchronized(controlador){
+            controlador.notify();
+        }
+    }
     @Override
     public void actionPerformed(ActionEvent ae){
         String accion = ae.getActionCommand();

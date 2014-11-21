@@ -9,20 +9,34 @@ import Modelo.Pokemon;
 import Vista.VistaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class ControladorPrincipal implements ActionListener {
     
     VistaPrincipal vPrincipal;
     ControladorBatalla cBatalla;
     ControladorPrincipal cPrincipal;
+    String nombreUsuario;
     
     public ControladorPrincipal(){
         this.vPrincipal = new VistaPrincipal();
+        this.vPrincipal.setVisible(false);
     }
 
     public static void main(String[] args) {
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
+        ControladorLogin cLogin = new ControladorLogin();
+        cPrincipal.esperarConfirmacion(cLogin);
+        cPrincipal.nombreUsuario = cLogin.nombreUsuario;
+        cPrincipal.vPrincipal.setVisible(true);
+        
+        System.out.println("Creada VistaLogn");
+        
+        
+        
+        
         
         
         cPrincipal.vPrincipal.agregarListener(cPrincipal);
@@ -53,6 +67,15 @@ public class ControladorPrincipal implements ActionListener {
     }
     public void simularBatalla(){
         cBatalla = new ControladorBatalla(this.vPrincipal);      
+    }
+    public void esperarConfirmacion(ControladorLogin controlador){
+        synchronized(controlador){
+            try {
+                controlador.wait();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     
