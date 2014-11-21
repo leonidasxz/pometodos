@@ -3,21 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/EspeciePokemon.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/PosibleMovimiento.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Controlador/ControladorBatalla.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Controlador/ControladorEntrenador.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Vista/VistaPrincipal.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Controlador/ControladorRanking.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/Campeonato.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/LigaPokemon.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/MovimientoAprendido.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/Habilidad.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Controlador/ControladorPokemon.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/Movimiento.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Vista/VistaBatalla.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Modelo/Entrenador.java</file>
-            <file>file:/home/fcuevas/Dropbox/U/Métodos%20de%20progra/Lab/Pokemon/src/Controlador/ControladorPrincipal.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/pometodos/src/Controlador/ControladorBatalla.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/pometodos/src/Controlador/ControladorEntrenador.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/pometodos/src/Controlador/ControladorRanking.java</file>
+            <file>file:/C:/Users/Rafael/Documents/GitHub/pometodos/src/Modelo/Entrenador.java</file>
         </group>
     </open-files>
 </project-private>

@@ -80,3 +80,5 @@ java.sql.SQLException: Database 'DBUsuarios' not found.
 ============= end nested exception, level (1) ===========
 Cleanup action completed
 Fri Nov 21 11:35:13 CLST 2014 Thread[DRDAConnThread_3,5,main] (DATABASE = DBUsuarios), (DRDAID = {4}), Database 'DBUsuarios' not found.
+----------------------------------------------------------------
+Fri Nov 21 11:42:22 CLST 2014: Shutting down Derby engine
