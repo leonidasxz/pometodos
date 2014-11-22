@@ -15,7 +15,7 @@ public abstract class Movimiento {
     protected String tipo;
     protected int potencia;
     protected int precision;
-    protected int[] PP = new int[2]; //EN PP[0] PP's actuales, PP[1] PP's Máximos
+    protected int[] PP ; //EN PP[0] PP's actuales, PP[1] PP's Máximos
     protected int blanco;
     protected String efectoSecundario;
     protected String contacto;

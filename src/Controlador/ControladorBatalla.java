@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 
 
 public class ControladorBatalla implements ActionListener{
-    int danhino;
+    int danho;
     VistaBatalla vBatalla;
     Batalla batalla;
     ControladorPokemon cPokemon;
@@ -104,17 +104,22 @@ public class ControladorBatalla implements ActionListener{
         
     }
     public void asignarMovABotones(Pokemon pokemon){
-        vBatalla.setBotones(pokemon.getMovimientos(),pokemon.getNombre());
+        vBatalla.setBotones(pokemon.getMovimientos(),pokemon.getNombre(),cEquipo.trainers[batalla.getTurno()].getNombre());
+        
     }
-    public void asignarDanhino(int dmg,Pokemon pokemon){
+    public void asignarDanho(int dmg,Pokemon pokemon){
+        System.out.println("dmg :"+dmg);
         pokemon.setPV(pokemon.getPV()[0]-dmg);
+        System.out.println("vidaPKMN: "+pokemon.getPV()[0]);
         if (dmg>0){
             System.out.println("le han hecho "+dmg+" de daño a"+pokemon.getNombre()+"!!! OMG!");
-        }
-        else{
             if (pokemon.getPV()[0]==0){
                 this.finalizarBatalla();
             }
+        }
+        else{
+            System.out.println("Miss!, daño 0");
+            
         }
         
     
@@ -127,10 +132,15 @@ public class ControladorBatalla implements ActionListener{
         }
     }
     public void usarMovimiento(String nombre){
-        for(Movimiento movimiento:cEquipo.trainers[batalla.getTurno()].getActivo().getMovimientos()){
-        if(movimiento.getNombre().equals(nombre)&&movimiento.getPP()[0]!=0){
-            int danhino= movimiento.getPotencia();
-            //cPokemon.asignarDanhino(danhino);
+        for(MovimientoAprendido movimiento:cEquipo.trainers[batalla.getTurno()].getActivo().getMovimientos()){
+            System.out.println("el movimiento es: "+movimiento.getNombre());
+            System.out.println("el nombre que entra en el metodo es: "+nombre);
+            if(movimiento.getNombre().equals(nombre)&&movimiento.getPP()[0]!=0){
+                
+                danho= movimiento.getPotencia();
+                System.out.println(movimiento.getPotencia());
+                System.out.println(danho);
+                //cPokemon.asignarDanho(danho);
             
         }
         }
@@ -174,8 +184,46 @@ public class ControladorBatalla implements ActionListener{
                 
                 break;
             case 6:
-                this.usarMovimiento(vBatalla.getNombreApretado());
-                this.asignarDanhino(danhino, cEquipo.trainers[this.controlTurnos()].getActivo());
+                System.out.println("Deberia atacar");
+                
+                    
+                this.usarMovimiento(vBatalla.getAtaque1().getText());
+                this.asignarDanho(danho, cEquipo.trainers[this.controlTurnos()].getActivo());
+                System.out.println("El golpeado fue: "+cEquipo.trainers[this.controlTurnos()].getNombre());
+                
+                batalla.avanzarTurno();
+                this.siguienteTurno();
+                break;
+            case 7:
+                System.out.println("Deberia atacar");
+                
+                    
+                this.usarMovimiento(vBatalla.getAtaque1().getText());
+                this.asignarDanho(danho, cEquipo.trainers[this.controlTurnos()].getActivo());
+                System.out.println("El golpeado fue: "+cEquipo.trainers[this.controlTurnos()].getNombre());
+                
+                batalla.avanzarTurno();
+                this.siguienteTurno();
+                break;
+            case 8:
+                System.out.println("Deberia atacar");
+                
+                    
+                this.usarMovimiento(vBatalla.getAtaque1().getText());
+                this.asignarDanho(danho, cEquipo.trainers[this.controlTurnos()].getActivo());
+                System.out.println("El golpeado fue: "+cEquipo.trainers[this.controlTurnos()].getNombre());
+                
+                batalla.avanzarTurno();
+                this.siguienteTurno();
+                break;
+            case 9:
+                System.out.println("Deberia atacar");
+                
+                    
+                this.usarMovimiento(vBatalla.getAtaque1().getText());
+                this.asignarDanho(danho, cEquipo.trainers[this.controlTurnos()].getActivo());
+                System.out.println("El golpeado fue: "+cEquipo.trainers[this.controlTurnos()].getNombre());
+                
                 batalla.avanzarTurno();
                 this.siguienteTurno();
                 break;
@@ -187,7 +235,9 @@ public class ControladorBatalla implements ActionListener{
     }
 
     private void finalizarBatalla() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("Ha ganado: "+cEquipo.trainers[turno].getNombre());
+        vBatalla.dispose();
+        
     }
     
 

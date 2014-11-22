@@ -16,6 +16,9 @@ public class MovimientoAprendido extends Movimiento {
     public MovimientoAprendido(String nombre,String tipo){
         this.nombre=nombre;
         this.tipo=tipo;
+        int[] valorInicial = {5,5};
+        this.PP = valorInicial;
+        this.potencia = 21;
     }
     
 }
