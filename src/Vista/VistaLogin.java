@@ -7,6 +7,7 @@ package Vista;
 
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,12 +48,14 @@ public class VistaLogin extends javax.swing.JFrame {
         labelConfirmarContrasena.setVisible(false);
         fieldConfirmacionContrasena = new javax.swing.JPasswordField();
         fieldConfirmacionContrasena.setVisible(false);
-        usuarioCreado = new javax.swing.JLabel();
-        usuarioCreado.setVisible(false);
+        botonAtras = new javax.swing.JButton();
+        botonAtras.setVisible(false);
+        botonSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        botonNuevoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         botonNuevoUsuario.setText("Crear nuevo usuario");
         botonNuevoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +63,7 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
+        fieldUsuario.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         fieldUsuario.setText("Usuario");
         fieldUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,8 +71,10 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
+        fieldContrasena.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         fieldContrasena.setText("Contrasena");
 
+        botonEntrar.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         botonEntrar.setText("Entrar");
         botonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +82,7 @@ public class VistaLogin extends javax.swing.JFrame {
             }
         });
 
+        botonConfirmar.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         botonConfirmar.setText("Crear Usuario");
         botonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,36 +96,55 @@ public class VistaLogin extends javax.swing.JFrame {
         labelContrasena.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         labelContrasena.setText("Contraseña");
 
+        labelConfirmarContrasena.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         labelConfirmarContrasena.setText("Confirmar Contraseña");
 
+        fieldConfirmacionContrasena.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
         fieldConfirmacionContrasena.setText("Contrasena");
 
-        usuarioCreado.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
-        usuarioCreado.setText("Usuario ha sido creado");
+        botonAtras.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        botonAtras.setText("Atras");
+        botonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAtrasActionPerformed(evt);
+            }
+        });
+
+        botonSalir.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
+        botonSalir.setText("Salir");
+        botonSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelNombreUsuario)
-                    .addComponent(labelContrasena)
-                    .addComponent(labelConfirmarContrasena)
-                    .addComponent(botonNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonSalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonNuevoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                     .addComponent(botonConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(botonEntrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(fieldConfirmacionContrasena, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(fieldContrasena, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(fieldUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(usuarioCreado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(55, 55, 55))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(labelNombreUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelContrasena, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelConfirmarContrasena, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(labelNombreUsuario)
                 .addGap(5, 5, 5)
                 .addComponent(fieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,15 +156,17 @@ public class VistaLogin extends javax.swing.JFrame {
                 .addComponent(labelConfirmarContrasena)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fieldConfirmacionContrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuarioCreado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(botonNuevoUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(botonConfirmar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonNuevoUsuario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(botonEntrar)
-                .addGap(21, 21, 21))
+                .addGap(18, 18, 18)
+                .addComponent(botonAtras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonSalir)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -149,9 +177,10 @@ public class VistaLogin extends javax.swing.JFrame {
         botonConfirmar.setVisible(true);
         botonEntrar.setVisible(false);
         botonNuevoUsuario.setVisible(false);
+        botonAtras.setVisible(true);
+        botonSalir.setVisible(false);
         fieldConfirmacionContrasena.setVisible(true);
         labelConfirmarContrasena.setVisible(true);
-        usuarioCreado.setVisible(false);
         
     }//GEN-LAST:event_botonNuevoUsuarioActionPerformed
 
@@ -173,15 +202,30 @@ public class VistaLogin extends javax.swing.JFrame {
         botonConfirmar.setVisible(false);
         botonEntrar.setVisible(true);
         botonNuevoUsuario.setVisible(true);
+        botonAtras.setVisible(false);
+        botonSalir.setVisible(true);
         fieldConfirmacionContrasena.setVisible(false);
-        labelConfirmarContrasena.setVisible(false);
+        labelConfirmarContrasena.setVisible(false);     
         
-
     }//GEN-LAST:event_botonConfirmarActionPerformed
 
     private void fieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUsuarioActionPerformed
+
+    private void botonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAtrasActionPerformed
+        botonConfirmar.setVisible(false);
+        botonEntrar.setVisible(true);
+        botonNuevoUsuario.setVisible(true);
+        botonAtras.setVisible(false);
+        botonSalir.setVisible(true);
+        fieldConfirmacionContrasena.setVisible(false);
+        labelConfirmarContrasena.setVisible(false);
+    }//GEN-LAST:event_botonAtrasActionPerformed
+
+    private void botonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_botonSalirActionPerformed
 
     public String getContrasena(){
         return this.contrasena;
@@ -200,8 +244,7 @@ public class VistaLogin extends javax.swing.JFrame {
         usuario = fieldUsuario.getText();
         contrasena = new String(fieldContrasena.getPassword());
         confirmarContrasena = new String(fieldConfirmacionContrasena.getPassword());        
-    }
-    
+    }    
     
     public void limpiar(){
         this.contrasena = "";
@@ -212,6 +255,38 @@ public class VistaLogin extends javax.swing.JFrame {
         this.fieldUsuario.setText("");
     }
 
+    public void mostrarVentanaEmergente(int caso){
+        switch(caso){
+            case 0:
+                JOptionPane.showMessageDialog(this, "Bienvenido, "+usuario);
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(this, "El nuevo usuario se ha creado satisfactoriamente");
+                break;
+            case 2:
+                JOptionPane.showMessageDialog(this, "El nombre de usuario y/o contraseña son erroneos");
+                break;
+            case 3:
+                JOptionPane.showMessageDialog(this, "El nombre de usuario ya existe");
+                break;
+            case 4:
+                JOptionPane.showMessageDialog(this, "Las contraseñas son diferentes");
+                break;
+            case 5:
+                JOptionPane.showMessageDialog(this, "Ingrese una contraseña");
+                break;
+            case 6:
+                JOptionPane.showMessageDialog(this, "Ingrese un nombre de usuario");
+                break;
+            case 7:
+                JOptionPane.showMessageDialog(this, "Conexion con la base de datos a fallado");
+                break;
+            default:
+                JOptionPane.showMessageDialog(this, "Ha ocurrido un error desconocido");
+                break;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -248,15 +323,16 @@ public class VistaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAtras;
     private javax.swing.JButton botonConfirmar;
     private javax.swing.JButton botonEntrar;
     private javax.swing.JButton botonNuevoUsuario;
+    private javax.swing.JButton botonSalir;
     private javax.swing.JPasswordField fieldConfirmacionContrasena;
     private javax.swing.JPasswordField fieldContrasena;
     private javax.swing.JTextField fieldUsuario;
     private javax.swing.JLabel labelConfirmarContrasena;
     private javax.swing.JLabel labelContrasena;
     private javax.swing.JLabel labelNombreUsuario;
-    private javax.swing.JLabel usuarioCreado;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,7 +52,7 @@ public class ControladorLogin implements ActionListener {
             Connection con = DriverManager.getConnection(DBHost, DBUsuario, DBContrasena);
             stmt = con.createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+            vistaLogin.mostrarVentanaEmergente(7);
         }
         
     }
@@ -68,7 +68,7 @@ public class ControladorLogin implements ActionListener {
         
         try{
             resultSet = stmt.executeQuery(comandoSQL);
-        } catch (SQLException ex){}
+        } catch (SQLException ex){vistaLogin.mostrarVentanaEmergente(7);}
         
         while (resultSet.next() && usuarioCorrecto == false && contrasenaCorrecta == false){
             if (usuario.equals(resultSet.getString("USUARIO")) && contrasena.equals(resultSet.getString("CONTRASEÑA"))){
@@ -79,10 +79,14 @@ public class ControladorLogin implements ActionListener {
         }
         if (usuarioCorrecto && contrasenaCorrecta){
             usuarioLogueado = true;
+            vistaLogin.mostrarVentanaEmergente(0);
             vistaLogin.setVisible(false);
             synchronized(this){
                 notify();
             }
+        }
+        else{
+            vistaLogin.mostrarVentanaEmergente(2);
         }
         System.out.println(usuarioLogueado);        
         return usuarioLogueado;
@@ -94,6 +98,7 @@ public class ControladorLogin implements ActionListener {
         try {
             resultSet = stmt.executeQuery(comandoSQL);
         } catch (SQLException ex) {
+            vistaLogin.mostrarVentanaEmergente(7);
             return false;
         }
         
@@ -111,28 +116,29 @@ public class ControladorLogin implements ActionListener {
             
             try{
                 stmt.executeUpdate(comandoSQL);
-            } catch (SQLException ex){}
+                vistaLogin.mostrarVentanaEmergente(1);
+            } catch (SQLException ex){vistaLogin.mostrarVentanaEmergente(7);}
         }
         
         else if (existeUsuario){
-            System.out.println("Usuario ya existe");
+            vistaLogin.mostrarVentanaEmergente(3);
         }
         
         else if(!usuario.equals("") && (contrasena.equals("") || confirmacionContrasena.equals(""))){
-            System.out.println("ingrese una contraseña");
+            vistaLogin.mostrarVentanaEmergente(5);
         }
         
         else if (usuario.equals("")){
-            System.out.println("Escriba un nombre de usuario");
+            vistaLogin.mostrarVentanaEmergente(6);
         }
         
         else if (!contrasena.equals(confirmacionContrasena) && !contrasena.equals("")
                 && !confirmacionContrasena.equals("")){
-            System.out.println("Las contraseñas son diferentes");
+            vistaLogin.mostrarVentanaEmergente(4);
         }
                
         else{
-            System.out.println("Ocurrio un error");
+            vistaLogin.mostrarVentanaEmergente(-1);
         }               
         return false;
     }
@@ -151,9 +157,7 @@ public class ControladorLogin implements ActionListener {
         {
             try {
                 crearNuevoUsuario(vistaLogin.getUsuario(), vistaLogin.getContrasena(), vistaLogin.getContrasenaConfirmada());
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } catch (SQLException ex) {vistaLogin.mostrarVentanaEmergente(7);}
         }
                 vistaLogin.limpiar();
                 break;
@@ -162,14 +166,12 @@ public class ControladorLogin implements ActionListener {
         {
             try {
                 usuarioLogueado = loginUsuario(vistaLogin.getUsuario(), vistaLogin.getContrasena());
-            } catch (SQLException ex) {
-                Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } catch (SQLException ex) {vistaLogin.mostrarVentanaEmergente(7);}
         }
                 vistaLogin.limpiar();
                 break;
             default:
-                System.out.println("que chucha paso");
+                vistaLogin.mostrarVentanaEmergente(-1);
                 break;
         }
     }
