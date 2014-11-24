@@ -34,9 +34,9 @@ public class ControladorLogin implements ActionListener {
     private String comandoSQL;
     private ResultSet resultSet;
     
-    public static void main(String[] args) throws SQLException{
-        //ControladorLogin cLogin = new ControladorLogin();
-    }
+//    public static void main(String[] args) throws SQLException{
+//        //ControladorLogin cLogin = new ControladorLogin();
+//    }
         
     public ControladorLogin(){
         vistaLogin = new VistaLogin();
@@ -49,10 +49,11 @@ public class ControladorLogin implements ActionListener {
         this.DBContrasena = "pometodos";
         this.DBUsuario = "pometodos";
         try {
-            Connection con = DriverManager.getConnection(DBHost, DBUsuario, DBContrasena);
+            con = DriverManager.getConnection(DBHost, DBUsuario, DBContrasena);
             stmt = con.createStatement();
         } catch (SQLException ex) {
             vistaLogin.mostrarVentanaEmergente(7);
+            System.exit(0);
         }
         
     }
