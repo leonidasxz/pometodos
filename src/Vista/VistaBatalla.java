@@ -8,6 +8,8 @@ package Vista;
 import Modelo.Movimiento;
 import Modelo.Pokemon;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.DefaultListCellRenderer;
@@ -30,6 +32,8 @@ public class VistaBatalla extends javax.swing.JDialog {
         initComponents();
         Capa2.setVisible(false);
         Capa3.setVisible(false);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     
