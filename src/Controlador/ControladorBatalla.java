@@ -113,7 +113,8 @@ public class ControladorBatalla implements ActionListener{
         System.out.println("vidaPKMN: "+pokemon.getPV()[0]);
         if (dmg>0){
             System.out.println("le han hecho "+dmg+" de daño a"+pokemon.getNombre()+"!!! OMG!");
-            if (pokemon.getPV()[0]==0){
+            if (pokemon.getPV()[0]<=0){
+                
                 this.finalizarBatalla();
             }
         }

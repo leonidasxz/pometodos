@@ -68,6 +68,10 @@ public class ControladorPrincipal implements ActionListener {
     public void simularBatalla(){
         cBatalla = new ControladorBatalla(this.vPrincipal);      
     }
+    
+    public void importarBaseDatos(){
+        
+    }
     public void esperarConfirmacion(ControladorLogin controlador){
         synchronized(controlador){
             try {
