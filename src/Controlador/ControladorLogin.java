@@ -46,8 +46,8 @@ public class ControladorLogin implements ActionListener {
         
         //Base de datos
         this.DBHost = "jdbc:derby://localhost:1527/PokemonUsuarios";
-        this.DBContrasena = "pometodos";
-        this.DBUsuario = "pometodos";
+        this.DBContrasena = "poke";
+        this.DBUsuario = "poke";
         try {
             con = DriverManager.getConnection(DBHost, DBUsuario, DBContrasena);
             stmt = con.createStatement();
@@ -65,7 +65,7 @@ public class ControladorLogin implements ActionListener {
         boolean usuarioCorrecto = false;
 
         
-        comandoSQL = "SELECT USUARIO, CONTRASEÑA FROM POMETODOS.USUARIOS";
+        comandoSQL = "SELECT USUARIO, CONTRASEÑA FROM POKE.USUARIOS";
         
         try{
             resultSet = stmt.executeQuery(comandoSQL);
@@ -95,7 +95,7 @@ public class ControladorLogin implements ActionListener {
     
     public boolean crearNuevoUsuario(String usuario, String contrasena, String confirmacionContrasena) throws SQLException{
         existeUsuario = false;
-        comandoSQL = "SELECT USUARIO FROM POMETODOS.USUARIOS";
+        comandoSQL = "SELECT USUARIO FROM POKE.USUARIOS";
         try {
             resultSet = stmt.executeQuery(comandoSQL);
         } catch (SQLException ex) {
@@ -113,7 +113,7 @@ public class ControladorLogin implements ActionListener {
                 && !usuario.equals("") && !contrasena.equals("") 
                 && !confirmacionContrasena.equals("")){
             
-            comandoSQL = "INSERT INTO POMETODOS.USUARIOS (USUARIO, \"CONTRASEÑA\") "+"VALUES ('"+usuario+"', '" +contrasena+"')";
+            comandoSQL = "INSERT INTO POKE.USUARIOS (USUARIO, \"CONTRASEÑA\") "+"VALUES ('"+usuario+"', '" +contrasena+"')";
             
             try{
                 stmt.executeUpdate(comandoSQL);
