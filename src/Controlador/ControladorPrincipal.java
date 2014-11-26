@@ -49,7 +49,7 @@ public class ControladorPrincipal implements ActionListener {
         
         
         
-        System.out.println("Creada VistaLogn");
+        
         
         
         
