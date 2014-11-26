@@ -27,6 +27,7 @@ public class ControladorPrincipal implements ActionListener {
     public static void main(String[] args) {
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
+        cPrincipal.importarBaseDatos();
         ControladorLogin cLogin = new ControladorLogin();
         cPrincipal.esperarConfirmacion(cLogin);
         cPrincipal.nombreUsuario = cLogin.nombreUsuario;
@@ -70,7 +71,7 @@ public class ControladorPrincipal implements ActionListener {
     }
     
     public void importarBaseDatos(){
-        
+        ControladorDba cDba = new ControladorDba();
     }
     public void esperarConfirmacion(ControladorLogin controlador){
         synchronized(controlador){
