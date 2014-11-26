@@ -9,6 +9,7 @@ import Modelo.Pokemon;
 import Vista.VistaPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,9 @@ public class ControladorPrincipal implements ActionListener {
     VistaPrincipal vPrincipal;
     ControladorBatalla cBatalla;
     ControladorPrincipal cPrincipal;
+    ControladorPokemon cPokemon;
     String nombreUsuario;
+    ControladorDba cDba;
     
     public ControladorPrincipal(){
         this.vPrincipal = new VistaPrincipal();
@@ -27,7 +30,13 @@ public class ControladorPrincipal implements ActionListener {
     public static void main(String[] args) {
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
-        cPrincipal.importarBaseDatos();
+        
+        
+        ControladorDba cDba = new ControladorDba();
+        ArrayList<ArrayList<String>> pokemons = cDba.consultaPokemonPrueba();
+        
+        ControladorPokemon cPokemon = new ControladorPokemon(pokemons);
+        
         ControladorLogin cLogin = new ControladorLogin();
         cPrincipal.esperarConfirmacion(cLogin);
         cPrincipal.nombreUsuario = cLogin.nombreUsuario;
@@ -70,9 +79,7 @@ public class ControladorPrincipal implements ActionListener {
         cBatalla = new ControladorBatalla(this.vPrincipal);      
     }
     
-    public void importarBaseDatos(){
-        ControladorDba cDba = new ControladorDba();
-    }
+
     public void esperarConfirmacion(ControladorLogin controlador){
         synchronized(controlador){
             try {
