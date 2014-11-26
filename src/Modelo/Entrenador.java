@@ -19,6 +19,7 @@ public class Entrenador {
     protected int ranking;
     Pokemon activo;
     public boolean esGanador;
+    private boolean tieneEquipo;
             
     public Entrenador(String nombre){
         this.nombre = nombre;
@@ -66,18 +67,16 @@ public class Entrenador {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+   
+
     //GETTERS AND SETTERS
+    public void setTieneEquipo(boolean tieneEquipo) {    
+        this.tieneEquipo = tieneEquipo;
+    }
+    
+    public boolean getTieneEquipo() {
+           return tieneEquipo;
+       }
     
     public String getNombre() {
         return nombre;

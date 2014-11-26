@@ -17,10 +17,13 @@ public class ControladorPrincipal implements ActionListener {
     
     VistaPrincipal vPrincipal;
     ControladorBatalla cBatalla;
+    ControladorEquipo cEquipo;
     ControladorPrincipal cPrincipal;
+    ControladorEntrenador cEntrenador;
     ControladorPokemon cPokemon;
     String nombreUsuario;
     ControladorDba cDba;
+    
     
     public ControladorPrincipal(){
         this.vPrincipal = new VistaPrincipal();
@@ -28,19 +31,23 @@ public class ControladorPrincipal implements ActionListener {
     }
 
     public static void main(String[] args) {
+        
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
-        
-        
         ControladorDba cDba = new ControladorDba();
         ArrayList<ArrayList<String>> pokemons = cDba.consultaPokemonPrueba();
-        
         ControladorPokemon cPokemon = new ControladorPokemon(pokemons);
+        
         
         ControladorLogin cLogin = new ControladorLogin();
         cPrincipal.esperarConfirmacion(cLogin);
         cPrincipal.nombreUsuario = cLogin.nombreUsuario;
+        System.out.println(cPrincipal.nombreUsuario);
+        ControladorEntrenador cEntrenador = new ControladorEntrenador(cPrincipal.nombreUsuario);
+        cPrincipal.vPrincipal.setNombreEntrenador(cPrincipal.nombreUsuario);
         cPrincipal.vPrincipal.setVisible(true);
+        
+        
         
         System.out.println("Creada VistaLogn");
         
@@ -90,6 +97,11 @@ public class ControladorPrincipal implements ActionListener {
         }
     }
     
+    public void crearEquipo(){
+        cEquipo = new ControladorEquipo(this.vPrincipal, 3);
+        
+    }
+            
     
     @Override
     public void actionPerformed(ActionEvent ae){     
@@ -104,6 +116,9 @@ public class ControladorPrincipal implements ActionListener {
             case 2:
                 System.exit(0);
             break;
+            case 3:
+                this.crearEquipo();
+                
                             
                 
         }

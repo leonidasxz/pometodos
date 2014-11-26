@@ -5,10 +5,18 @@
  */
 package Controlador;
 
+import Modelo.Entrenador;
+
 /**
  *
  * @author fcuevas
  */
 public class ControladorEntrenador {
+    Entrenador entrenadorPrincipal;
+    boolean tieneEquipo;
     
+    public ControladorEntrenador(String nombre){
+        entrenadorPrincipal = new Entrenador(nombre);
+        
+    }
 }

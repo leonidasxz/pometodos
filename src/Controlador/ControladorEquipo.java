@@ -7,17 +7,19 @@ package Controlador;
 
 import Modelo.Entrenador;
 import Modelo.Pokemon;
+import Vista.VistaEquipo;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ControladorEquipo {
+    VistaEquipo vEquipo;
     Scanner sc;
     int opcion;
     int player = 1;
     Entrenador[] trainers = new Entrenador[2];
     Pokemon[] pokemons = new Pokemon[3];
     ControladorPokemon cPokemon;
-
+    
     public ControladorEquipo(){
         sc = new Scanner(System.in);
         
@@ -68,8 +70,22 @@ public class ControladorEquipo {
         }
         sc.close();
         
-               
-        
-}
     
+    }
+    public ControladorEquipo(javax.swing.JFrame vista,int i){
+        System.out.println("Controlador EQUIPO ACTIVATED");
+        switch(i){
+            case 3:
+                this.crearEquipo(vista);
+                System.out.println("oli");
+        }
+        
+               
+    }
+    public void crearEquipo(javax.swing.JFrame vistaPapi){
+        VistaEquipo vEquipo = new VistaEquipo(vistaPapi, true);
+        vEquipo.setVisible(true);
+        
+        
+    }
 }
