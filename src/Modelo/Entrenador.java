@@ -20,6 +20,8 @@ public class Entrenador {
     Pokemon activo;
     public boolean esGanador;
     private boolean tieneEquipo;
+    private int mejorRachaTorreDeBatalla; //Para torre de batalla - rafael
+    private int[] logrosTorreDeBatalla; //Para torre de batalla - rafael
             
     public Entrenador(String nombre){
         this.nombre = nombre;

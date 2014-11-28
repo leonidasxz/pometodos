@@ -51,6 +51,23 @@ public class Pokemon extends EspeciePokemon {
         movimientos[3] = new MovimientoAprendido("Llorar","agua");
     }
     
+    //  Constructor usado en Torre de Batalla para generar pokemon al azar - rafael
+    public Pokemon(int numPokedex, String especie, int ataque, int ataqueEspecial, 
+            int defensa, int defensaEspecial, int PV, String naturalezaPrimaria,
+            String naturalezaSecundaria){
+        
+        this.numPokedex = numPokedex;
+        this.nombre = especie;
+        this.especie = especie;
+        this.ataque = ataque;
+        this.ataqueEspecial = ataqueEspecial;
+        this.defensa = defensa;
+        this.defensaEspecial = defensaEspecial;
+        this.PV[0] = PV;
+        this.PV[1] = PV;
+        this.naturalezaPrimaria = naturalezaPrimaria;
+        this.naturalezaSecundaria = naturalezaSecundaria;
+    }
     
     public void usarMovimiento(){
         

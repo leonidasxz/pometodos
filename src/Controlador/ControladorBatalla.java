@@ -37,7 +37,7 @@ public class ControladorBatalla implements ActionListener{
         
         
     }
-    
+     
     public void seleccionarEquipo(){
         this.cEquipo = new ControladorEquipo();
         this.seleccionPokeInicial();
