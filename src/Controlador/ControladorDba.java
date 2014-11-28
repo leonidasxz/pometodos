@@ -22,7 +22,7 @@ public class ControladorDba {
     public ControladorDba(){
         try{
             Connection cn = DriverManager.getConnection("jdbc:derby://localhost:1527/pokemdb;user=poke;password=poke");
-            System.out.println("Conexion correcta");
+            System.out.println("Conexion correcta");// [poke on POKE]
             stm = cn.createStatement();
             System.out.println("Ejecutando QUERY");
             

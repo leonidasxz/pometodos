@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 Fri Nov 28 19:16:12 CLST 2014 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
 Fri Nov 28 19:16:16 CLST 2014:
  Iniciando instancia a816c00e-0149-f879-cc0d-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/pokemdb con el cargador de clases sun.misc.Launcher$AppClassLoader@1043fb68
+Cargado desde file:/usr/share/javadb/lib/derby.jar
+=======
+Fri Nov 28 19:44:08 CLST 2014 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
+----------------------------------------------------------------
+Fri Nov 28 19:44:08 CLST 2014:
+ Iniciando instancia a816c00e-0149-f893-5f53-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
 en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/pokemdb con el cargador de clases sun.misc.Launcher$AppClassLoader@1043fb68
 Cargado desde file:/usr/share/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -13,4 +21,21 @@ os.version=3.13.0-40-generic
 derby.system.home=/home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
 ----------------------------------------------------------------
+Fri Nov 28 19:44:21 CLST 2014:
+ Iniciando instancia 888c4022-0149-f893-5f53-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/PokemonUsuarios con el cargador de clases sun.misc.Launcher$AppClassLoader@1043fb68
+Cargado desde file:/usr/share/javadb/lib/derby.jar
+>>>>>>> master
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_65-b32
+user.dir=/usr/share/javadb
+os.name=Linux
+os.arch=amd64
+os.version=3.13.0-40-generic
+derby.system.home=/home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB
+Cargador de clases de base de datos iniciado - derby.database.classpath=''
+<<<<<<< HEAD
+----------------------------------------------------------------
 Fri Nov 28 19:20:23 CLST 2014: cerrando motor de Derby
+=======
+>>>>>>> master
