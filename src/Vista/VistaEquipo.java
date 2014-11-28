@@ -220,9 +220,9 @@ public class VistaEquipo extends javax.swing.JDialog {
                             .addComponent(cte6Lb)
                             .addComponent(lbDtBase))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cte7Lb)
-                            .addComponent(lbDtMax))))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDtMax)
+                            .addComponent(cte7Lb))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cte3Lb)
@@ -309,16 +309,16 @@ public class VistaEquipo extends javax.swing.JDialog {
        
    }
     public void labelsEsconder(){
-        this.cteLb.setVisible(false);
-        this.cte2Lb.setVisible(false);
-        this.cte3Lb.setVisible(false);
-        this.cte4Lb.setVisible(false);
-        this.cte5Lb.setVisible(false);
-        this.cte6Lb.setVisible(false);
-        this.cte7Lb.setVisible(false);
-        this.cte8Lb.setVisible(false);
-        this.cte9Lb.setVisible(false);
-        this.cte10Lb.setVisible(false);
+        this.lbAtBase.setVisible(false);
+        this.lbAtMax.setVisible(false);
+        this.lbAeBase.setVisible(false);
+        this.lbAeMax.setVisible(false);
+        this.lbDtBase.setVisible(false);
+        this.lbDtMax.setVisible(false);
+        this.lbDeBase.setVisible(false);
+        this.lbDeMax.setVisible(false);
+        this.lbHpBase.setVisible(false);
+        this.lbHpMax.setVisible(false);
         
         
         

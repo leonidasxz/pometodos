@@ -148,9 +148,9 @@
                               <Component id="lbDtBase" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cte7Lb" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lbDtMax" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="cte7Lb" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
