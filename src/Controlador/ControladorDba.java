@@ -71,7 +71,7 @@ public class ControladorDba {
                 info.add(HpMax);
                 
                 salida.add(info);
-                
+
                 
             }
             
@@ -80,6 +80,7 @@ public class ControladorDba {
         } catch (SQLException ex) {
             Logger.getLogger(ControladorDba.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         return salida;
     }
     
