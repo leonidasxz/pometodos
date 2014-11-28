@@ -13,14 +13,19 @@ import java.util.ArrayList;
  * @author fcuevas
  */
 public class ControladorPokemon {
-    ArrayList<ArrayList<String>> pokemones;
+    private ArrayList<ArrayList<String>> pokemones;
     
     public ControladorPokemon(ArrayList<ArrayList<String>> pokemones){
         this.pokemones = pokemones;
-        System.out.println(pokemones);
+        
         
     }
     
+    public ArrayList<ArrayList<String>> getPokemones(){
+        System.out.println(this.pokemones);
+        return this.pokemones;
+        
+    }
     
     
     
