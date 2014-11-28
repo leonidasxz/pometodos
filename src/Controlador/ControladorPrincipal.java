@@ -23,11 +23,13 @@ public class ControladorPrincipal implements ActionListener {
     ControladorPokemon cPokemon;
     String nombreUsuario;
     ControladorDba cDba;
+    static ArrayList<ArrayList<String>>  pokemonster;
     
     
     public ControladorPrincipal(){
         this.vPrincipal = new VistaPrincipal();
         this.vPrincipal.setVisible(false);
+        
     }
 
     public static void main(String[] args) {
@@ -35,8 +37,9 @@ public class ControladorPrincipal implements ActionListener {
         System.out.println("Comienza a funcionar");
         ControladorPrincipal cPrincipal = new ControladorPrincipal();
         ControladorDba cDba = new ControladorDba();
-        ArrayList<ArrayList<String>> pokemons = cDba.consultaPokemonPrueba();
-        ControladorPokemon cPokemon = new ControladorPokemon(pokemons);
+        pokemonster = cDba.consultaPokemonPrueba();
+       
+        ControladorPokemon cPokemon = new ControladorPokemon(pokemonster);
         
         
         ControladorLogin cLogin = new ControladorLogin();
@@ -98,7 +101,7 @@ public class ControladorPrincipal implements ActionListener {
     }
     
     public void crearEquipo(){
-        cEquipo = new ControladorEquipo(this.vPrincipal, 3);
+        cEquipo = new ControladorEquipo(this.vPrincipal,3,pokemonster);
         
     }
             
@@ -117,7 +120,10 @@ public class ControladorPrincipal implements ActionListener {
                 System.exit(0);
             break;
             case 3:
+                System.out.println(pokemonster);
                 this.crearEquipo();
+                
+                
                 
                             
                 

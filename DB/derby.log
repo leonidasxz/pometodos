@@ -1,8 +1,8 @@
-Wed Nov 26 12:31:01 CLST 2014 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
+Thu Nov 27 10:04:16 CLST 2014 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y está listo para aceptar las conexiones en el puerto 1527
 ----------------------------------------------------------------
-Wed Nov 26 12:31:01 CLST 2014:
- Iniciando instancia a816c00e-0149-ecba-203a-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/PokemonUsuarios con el cargador de clases sun.misc.Launcher$AppClassLoader@7694837a
+Thu Nov 27 10:04:25 CLST 2014:
+ Iniciando instancia a816c00e-0149-f15a-2091-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/pokemdb con el cargador de clases sun.misc.Launcher$AppClassLoader@1043fb68
 Cargado desde file:/usr/share/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_65-b32
@@ -12,61 +12,10 @@ os.arch=amd64
 os.version=3.13.0-40-generic
 derby.system.home=/home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
-Wed Nov 26 12:31:04 CLST 2014 Thread[DRDAConnThread_2,5,main] (XID = 478), (SESSIONID = 0), (DATABASE = PokemonUsuarios), (DRDAID = {1}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 19 more
-============= begin nested exception, level (1) ===========
-java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection40.<init>(Unknown Source)
-	at org.apache.derby.jdbc.Driver40.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.Driver20.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-============= end nested exception, level (1) ===========
-Cleanup action completed
-Wed Nov 26 12:31:04 CLST 2014 Thread[DRDAConnThread_2,5,main] (DATABASE = PokemonUsuarios), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..
 ----------------------------------------------------------------
-Wed Nov 26 12:31:37 CLST 2014:
- Iniciando instancia 05550069-0149-ecba-203a-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/pokemdb con el cargador de clases sun.misc.Launcher$AppClassLoader@7694837a
+Thu Nov 27 10:04:27 CLST 2014:
+ Iniciando instancia 08264012-0149-f15a-2091-ffff9b50dd74 de Derby, versión The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
+en el directorio de base de datos /home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB/PokemonUsuarios con el cargador de clases sun.misc.Launcher$AppClassLoader@1043fb68
 Cargado desde file:/usr/share/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_65-b32
@@ -76,3 +25,5 @@ os.arch=amd64
 os.version=3.13.0-40-generic
 derby.system.home=/home/fcuevas/Dropbox/U/Métodos de progra/Lab/Pokemon/DB
 Cargador de clases de base de datos iniciado - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Nov 28 18:18:34 CLST 2014: cerrando motor de Derby

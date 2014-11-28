@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class ControladorEquipo {
     VistaEquipo vEquipo;
+    ArrayList<ArrayList<String>> pokemones;
     Scanner sc;
     int opcion;
     int player = 1;
@@ -72,19 +73,24 @@ public class ControladorEquipo {
         
     
     }
-    public ControladorEquipo(javax.swing.JFrame vista,int i){
+    public ControladorEquipo(javax.swing.JFrame vista,int i,ArrayList<ArrayList<String>> datos){
         System.out.println("Controlador EQUIPO ACTIVATED");
         switch(i){
             case 3:
-                this.crearEquipo(vista);
-                System.out.println("oli");
+                System.out.println(datos);
+                crearEquipo(vista,datos);
+                
+                
         }
         
                
     }
-    public void crearEquipo(javax.swing.JFrame vistaPapi){
+    public void crearEquipo(javax.swing.JFrame vistaPapi,ArrayList<ArrayList<String>> datos){
         VistaEquipo vEquipo = new VistaEquipo(vistaPapi, true);
+        vEquipo.setDatos(datos);
         vEquipo.setVisible(true);
+        
+        
         
         
     }

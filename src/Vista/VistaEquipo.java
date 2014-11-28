@@ -5,18 +5,21 @@
  */
 package Vista;
 
-/**
- *
- * @author fcuevas
- */
+import Modelo.Pokemon;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
+
 public class VistaEquipo extends javax.swing.JDialog {
 
+    ArrayList<ArrayList<String>> datos;
     /**
      * Creates new form VistaEquipo
      */
     public VistaEquipo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        labelsEsconder();
     }
 
     /**
@@ -32,28 +35,32 @@ public class VistaEquipo extends javax.swing.JDialog {
         cteLb = new javax.swing.JLabel();
         cte2Lb = new javax.swing.JLabel();
         cte3Lb = new javax.swing.JLabel();
-        btAtBase = new javax.swing.JLabel();
-        btAtMax = new javax.swing.JLabel();
-        btAeBase = new javax.swing.JLabel();
+        lbAtBase = new javax.swing.JLabel();
+        lbAtMax = new javax.swing.JLabel();
+        lbAeBase = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listaDisponibles = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btConfirmar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         cte4Lb = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        cte6Lb = new javax.swing.JLabel();
+        cte7Lb = new javax.swing.JLabel();
+        lbAeMax = new javax.swing.JLabel();
+        lbDtBase = new javax.swing.JLabel();
+        lbDtMax = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        listaSeleccionados = new javax.swing.JList();
+        cte8Lb = new javax.swing.JLabel();
+        lbDeBase = new javax.swing.JLabel();
+        cte9Lb = new javax.swing.JLabel();
+        lbDeMax = new javax.swing.JLabel();
+        cte5Lb = new javax.swing.JLabel();
+        lbHpBase = new javax.swing.JLabel();
+        cte10Lb = new javax.swing.JLabel();
+        lbHpMax = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,24 +70,24 @@ public class VistaEquipo extends javax.swing.JDialog {
 
         cte3Lb.setText("Ataque Especial Base:");
 
-        btAtBase.setText("jLabel8");
+        lbAtBase.setText("jLabel8");
 
-        btAtMax.setText("jLabel9");
+        lbAtMax.setText("jLabel9");
 
-        btAeBase.setText("jLabel10");
+        lbAeBase.setText("jLabel10");
 
-        jList1.setModel(new javax.swing.AbstractListModel() {
+        listaDisponibles.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaDisponibles);
 
-        jButton1.setText("jButton1");
+        jButton1.setText(">>");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("<<");
 
-        jButton3.setText("jButton3");
+        btConfirmar.setText("Confirmar");
 
         jButton4.setText("jButton4");
 
@@ -88,30 +95,38 @@ public class VistaEquipo extends javax.swing.JDialog {
 
         cte4Lb.setText("Ataque Especial Max: ");
 
-        jLabel6.setText("Defensa Base:");
+        cte6Lb.setText("Defensa Base:");
 
-        jLabel7.setText("Defensa Mínima:");
+        cte7Lb.setText("Defensa Maximo:");
 
-        jLabel11.setText("jLabel11");
+        lbAeMax.setText("jLabel11");
 
-        jLabel12.setText("jLabel12");
+        lbDtBase.setText("jLabel12");
 
-        jLabel13.setText("jLabel13");
+        lbDtMax.setText("jLabel13");
 
-        jList2.setModel(new javax.swing.AbstractListModel() {
+        listaSeleccionados.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        jScrollPane2.setViewportView(listaSeleccionados);
 
-        jLabel14.setText("Defensa Especial Base:");
+        cte8Lb.setText("Defensa Especial Base:");
 
-        jLabel15.setText("jLabel15");
+        lbDeBase.setText("jLabel15");
 
-        jLabel16.setText("Defensa Especial Max:");
+        cte9Lb.setText("Defensa Especial Max:");
 
-        jLabel17.setText("jLabel17");
+        lbDeMax.setText("jLabel17");
+
+        cte5Lb.setText("Hp Base:");
+
+        lbHpBase.setText("jLabel3");
+
+        cte10Lb.setText("Hp Max:");
+
+        lbHpMax.setText("jLabel5");
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -120,141 +135,145 @@ public class VistaEquipo extends javax.swing.JDialog {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(161, 161, 161)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(177, 177, 177)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                                .addComponent(cte4Lb)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbAeMax))
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                                 .addComponent(cte3Lb)
                                 .addGap(37, 37, 37)
-                                .addComponent(btAeBase))
-                            .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addComponent(cte4Lb)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel11)))
-                        .addGap(147, 147, 147)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel16))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbAtBase)
+                                    .addComponent(lbAeBase)
+                                    .addComponent(lbAtMax))))
+                        .addGap(168, 168, 168)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel17))
+                            .addComponent(cte9Lb)
+                            .addComponent(cte8Lb)
+                            .addComponent(cte7Lb)
+                            .addComponent(cte6Lb))
+                        .addGap(18, 18, 18)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbDeBase)
+                            .addComponent(lbDeMax)
+                            .addComponent(lbDtMax)
+                            .addComponent(lbDtBase))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btConfirmar)
+                        .addGap(211, 211, 211)
                         .addComponent(jButton4)))
                 .addGap(31, 31, 31))
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(cte2Lb)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btAtMax))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(cteLb)
-                        .addGap(143, 143, 143)
-                        .addComponent(btAtBase)))
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cte2Lb, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cteLb, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(cte5Lb)
+                .addGap(28, 28, 28)
+                .addComponent(lbHpBase)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12))
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13)))
-                .addGap(55, 55, 55))
+                .addComponent(cte10Lb)
+                .addGap(41, 41, 41)
+                .addComponent(lbHpMax)
+                .addGap(67, 67, 67))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                                .addGap(22, 22, 22)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1)
-                                .addGap(33, 33, 33)
+                                .addGap(18, 18, 18)
                                 .addComponent(jButton2))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btAtBase)
-                            .addComponent(cteLb))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cteLb)
+                            .addComponent(lbAtBase))
                         .addGap(14, 14, 14)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cte2Lb)
-                            .addComponent(btAtMax)))
+                            .addComponent(lbAtMax)))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel12))
+                            .addComponent(cte6Lb)
+                            .addComponent(lbDtBase))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel13))))
+                            .addComponent(cte7Lb)
+                            .addComponent(lbDtMax))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cte3Lb)
-                    .addComponent(btAeBase)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
+                    .addComponent(lbAeBase)
+                    .addComponent(cte8Lb)
+                    .addComponent(lbDeBase))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cte4Lb)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel16)
-                    .addComponent(jLabel17))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                    .addComponent(lbAeMax)
+                    .addComponent(cte9Lb)
+                    .addComponent(lbDeMax))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(cte5Lb)
+                    .addComponent(lbHpBase)
+                    .addComponent(cte10Lb)
+                    .addComponent(lbHpMax))
+                .addGap(26, 26, 26)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btConfirmar)
                     .addComponent(jButton4))
                 .addContainerGap())
         );
         jLayeredPane1.setLayer(cteLb, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(cte2Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(cte3Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(btAtBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(btAtMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(btAeBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbAtBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbAtMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbAeBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(btConfirmar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(cte4Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte6Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte7Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbAeMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbDtBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbDtMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte8Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbDeBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte9Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbDeMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte5Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbHpBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(cte10Lb, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(lbHpMax, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,9 +289,41 @@ public class VistaEquipo extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    public void setDatos(ArrayList<ArrayList<String>> datos){
+        this.datos = datos;
+        this.agregarEnLista(this.datos);
+        // ORDEN DEL STRING: POKEDEX, NOMBREFAMILIA,AtBase,AtMax,DfBase,DfMax,AeBase,AeMax,DeBase,DeMax,HpBase,HpMax
+        
+    }
+    public void agregarEnLista(ArrayList<ArrayList<String>> listaPokemon){
+            
+       
+    DefaultListModel elementosLista = new DefaultListModel();
+        for(ArrayList<String> pokemonysusdatos : listaPokemon){
+            elementosLista.addElement(pokemonysusdatos.get(1));
+        listaDisponibles.setModel(elementosLista);
+       
+              
+       }
+        
+       
+   }
+    public void labelsEsconder(){
+        this.cteLb.setVisible(false);
+        this.cte2Lb.setVisible(false);
+        this.cte3Lb.setVisible(false);
+        this.cte4Lb.setVisible(false);
+        this.cte5Lb.setVisible(false);
+        this.cte6Lb.setVisible(false);
+        this.cte7Lb.setVisible(false);
+        this.cte8Lb.setVisible(false);
+        this.cte9Lb.setVisible(false);
+        this.cte10Lb.setVisible(false);
+        
+        
+        
+    }
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -310,34 +361,44 @@ public class VistaEquipo extends javax.swing.JDialog {
                 dialog.setVisible(true);
             }
         });
+    
+        
+    
+        
+    
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btAeBase;
-    private javax.swing.JLabel btAtBase;
-    private javax.swing.JLabel btAtMax;
+    private javax.swing.JButton btConfirmar;
+    private javax.swing.JLabel cte10Lb;
     private javax.swing.JLabel cte2Lb;
     private javax.swing.JLabel cte3Lb;
     private javax.swing.JLabel cte4Lb;
+    private javax.swing.JLabel cte5Lb;
+    private javax.swing.JLabel cte6Lb;
+    private javax.swing.JLabel cte7Lb;
+    private javax.swing.JLabel cte8Lb;
+    private javax.swing.JLabel cte9Lb;
     private javax.swing.JLabel cteLb;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JList jList1;
-    private javax.swing.JList jList2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbAeBase;
+    private javax.swing.JLabel lbAeMax;
+    private javax.swing.JLabel lbAtBase;
+    private javax.swing.JLabel lbAtMax;
+    private javax.swing.JLabel lbDeBase;
+    private javax.swing.JLabel lbDeMax;
+    private javax.swing.JLabel lbDtBase;
+    private javax.swing.JLabel lbDtMax;
+    private javax.swing.JLabel lbHpBase;
+    private javax.swing.JLabel lbHpMax;
+    private javax.swing.JList listaDisponibles;
+    private javax.swing.JList listaSeleccionados;
     // End of variables declaration//GEN-END:variables
 }
