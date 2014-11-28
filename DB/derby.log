@@ -1,19 +1,32 @@
-Wed Nov 26 12:31:01 CLST 2014 : Servidor de red Apache Derby: Se ha iniciado 10.10.2.0 - (1582446) y estÃ¡ listo para aceptar las conexiones en el puerto 1527
+Fri Nov 28 12:09:59 CLST 2014 : Apache Derby Network Server - 10.10.1.3 - (1557168) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Wed Nov 26 12:31:01 CLST 2014:
- Iniciando instancia a816c00e-0149-ecba-203a-ffff9b50dd74 de Derby, versiÃ³n The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos /home/fcuevas/Dropbox/U/MÃ©todos de progra/Lab/Pokemon/DB/PokemonUsuarios con el cargador de clases sun.misc.Launcher$AppClassLoader@7694837a
-Cargado desde file:/usr/share/javadb/lib/derby.jar
+Fri Nov 28 12:10:00 CLST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.3 - (1557168): instance a816c00e-0149-f6f3-82fb-00003a42fba7 
+on database directory C:\Users\Rafael\Documents\GitHub\pometodos\DB\PokemonUsuarios with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_25/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_65-b32
-user.dir=/usr/share/javadb
-os.name=Linux
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Program Files\Java\jdk1.8.0_25\db
+os.name=Windows 8.1
 os.arch=amd64
-os.version=3.13.0-40-generic
-derby.system.home=/home/fcuevas/Dropbox/U/MÃ©todos de progra/Lab/Pokemon/DB
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
-Wed Nov 26 12:31:04 CLST 2014 Thread[DRDAConnThread_2,5,main] (XID = 478), (SESSIONID = 0), (DATABASE = PokemonUsuarios), (DRDAID = {1}), Cleanup action starting
-java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
+os.version=6.3
+derby.system.home=C:\Users\Rafael\Documents\GitHub\pometodos\DB
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Nov 28 12:10:05 CLST 2014:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.3 - (1557168): instance 6074401f-0149-f6f3-82fb-00003a42fba7 
+on database directory C:\Users\Rafael\Documents\GitHub\pometodos\DB\pokemdb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/C:/Program%20Files/Java/jdk1.8.0_25/db/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_25-b18
+user.dir=C:\Program Files\Java\jdk1.8.0_25\db
+os.name=Windows 8.1
+os.arch=amd64
+os.version=6.3
+derby.system.home=C:\Users\Rafael\Documents\GitHub\pometodos\DB
+Database Class Loader started - derby.database.classpath=''
+Fri Nov 28 12:10:06 CLST 2014 Thread[DRDAConnThread_3,5,main] (XID = 6828), (SESSIONID = 0), (DATABASE = pokemdb), (DRDAID = {2}), Cleanup action starting
+java.sql.SQLNonTransientConnectionException: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.newEmbedSQLException(Unknown Source)
@@ -33,12 +46,12 @@ java.sql.SQLNonTransientConnectionException: Connection authentication failure o
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
+Caused by: java.sql.SQLException: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	... 19 more
 ============= begin nested exception, level (1) ===========
-java.sql.SQLException: Connection authentication failure occurred.  Reason: Invalid authentication..
+java.sql.SQLException: Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory40.getSQLException(Unknown Source)
@@ -62,17 +75,4 @@ java.sql.SQLException: Connection authentication failure occurred.  Reason: Inva
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Wed Nov 26 12:31:04 CLST 2014 Thread[DRDAConnThread_2,5,main] (DATABASE = PokemonUsuarios), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..
-----------------------------------------------------------------
-Wed Nov 26 12:31:37 CLST 2014:
- Iniciando instancia 05550069-0149-ecba-203a-ffff9b50dd74 de Derby, versiÃ³n The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): 
-en el directorio de base de datos /home/fcuevas/Dropbox/U/MÃ©todos de progra/Lab/Pokemon/DB/pokemdb con el cargador de clases sun.misc.Launcher$AppClassLoader@7694837a
-Cargado desde file:/usr/share/javadb/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_65-b32
-user.dir=/usr/share/javadb
-os.name=Linux
-os.arch=amd64
-os.version=3.13.0-40-generic
-derby.system.home=/home/fcuevas/Dropbox/U/MÃ©todos de progra/Lab/Pokemon/DB
-Cargador de clases de base de datos iniciado - derby.database.classpath=''
+Fri Nov 28 12:10:06 CLST 2014 Thread[DRDAConnThread_3,5,main] (DATABASE = pokemdb), (DRDAID = {2}), Se ha producido un fallo de autenticación de conexión. Motivo: Autenticación no válida..

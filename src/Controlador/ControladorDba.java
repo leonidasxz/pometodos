@@ -82,4 +82,24 @@ public class ControladorDba {
         }
         return salida;
     }
+    
+    // Metodos auxiliares para obtener e ingresar datos a la base de datos
+    public ResultSet obtenerResultSetDB(String query, boolean bool) throws SQLException{
+        ResultSet rset;
+        rset = this.stm.executeQuery(query);
+        if(bool){
+            rset.next(); //con bool puedes elegir si quieres hacer el .next() manualmente o no
+        }
+        return rset;
+    }
+    
+    public boolean actualizarDatosDB(String query){
+        try{
+            this.stm.executeUpdate(query);
+            return true;
+        }
+        catch(SQLException e){return false;}
+        
+    }
+    
 }
