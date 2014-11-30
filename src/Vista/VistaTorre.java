@@ -49,6 +49,7 @@ public class VistaTorre extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         botonCambiar = new javax.swing.JButton();
+        botonCambiar.setEnabled(false);
         botonIniciar = new javax.swing.JButton();
         botonContinuarTorre = new javax.swing.JButton();
         botonVolver = new javax.swing.JButton();
@@ -97,7 +98,7 @@ public class VistaTorre extends javax.swing.JDialog {
 
         jLabel6.setText("Ademas puedes guardar tu progreso hasta este punto.");
 
-        jLabel7.setText("Selecciona tus Pokémon a cambiar.");
+        jLabel7.setText("Selecciona tus Pokémon a cambiar en forma individual.");
 
         botonCambiar.setText("Cambiar Pokémon");
         botonCambiar.addActionListener(new java.awt.event.ActionListener() {
@@ -232,6 +233,7 @@ public class VistaTorre extends javax.swing.JDialog {
 
     private void listaPokemonValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPokemonValueChanged
         // TODO add your handling code here:
+        botonCambiar.setEnabled(true);
     }//GEN-LAST:event_listaPokemonValueChanged
 
     private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
@@ -272,7 +274,6 @@ public class VistaTorre extends javax.swing.JDialog {
     public void mostrarVistaCambios(Entrenador entrenador){
         conteoCambios = 0;
         mostrarPokemonEnLista(entrenador);
-        botonCambiar.setEnabled(true);
         vistaCambioPokemon.setVisible(true);
     }
     
@@ -303,6 +304,15 @@ public class VistaTorre extends javax.swing.JDialog {
     }
     public void esconderVentanaCambios(){
         this.vistaCambioPokemon.setVisible(false);
+    }
+    
+    public void setRacha(int racha){
+        if (racha == 1){
+            this.racha.setText(racha + " victoria");    
+        }
+        else{
+            this.racha.setText(racha + " victorias");
+        }
     }
     /**
      * @param args the command line arguments

@@ -91,6 +91,7 @@ public class ControladorTorre implements ActionListener{
         
         if (this.entrenador.esGanador){
             rachaGanadora++;
+            vistaTorre.setRacha(rachaGanadora);
             vistaTorre.mostrarVistaCambios(this.entrenador);
         }
         
@@ -205,23 +206,29 @@ public class ControladorTorre implements ActionListener{
         switch(accion){
             case 1:
                 break;
+                
             case 2:
                 try{
                     iniciarNuevaTorre();
                 } catch (SQLException e){}
                 break;
+                
             case 3:
                 break;
+                
             case 4:
                 try{
                     vistaTorre.esconderVentanaCambios();
                     batallaTorreBatalla();
                 } catch (SQLException e){}
+                break;
+                
             case 6:
                 try{
                     cambiarPokemon();
                 } catch (SQLException e){}
                 break;
+                
             default:
                 System.out.println("alguna wea paso");
                 break;
