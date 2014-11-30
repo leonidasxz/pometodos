@@ -8,31 +8,36 @@ package Controlador;
 import Vista.VistaTorre;
 import Modelo.Entrenador;
 import Modelo.Pokemon;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 /**
  *
  * @author Rafael
  */
-public class ControladorTorre {
+public class ControladorTorre implements ActionListener{
     
     private int rachaGanadora;
     private javax.swing.JFrame nombreVista;
     ControladorDba controladorSQL = new ControladorDba();
+    VistaTorre vistaTorre;
+    private Entrenador entrenador;
     
-    public ControladorTorre(Entrenador entrenador, javax.swing.JFrame nombreVista){
-        System.out.println("iniciando objetos");
+    public ControladorTorre(Entrenador entrenador, javax.swing.JFrame nombreVista) {
+        this.entrenador = entrenador;
+        vistaTorre = new VistaTorre(new javax.swing.JFrame(), true);
+        vistaTorre.agregarListeners(this);
+        vistaTorre.setVisible(true);
         
         
-//        VistaTorre vistaTorre = new VistaTorre(new javax.swing.JFrame(), true);
-//        vistaTorre.setVisible(true);
     }
     
     public static void main (String[] args) throws SQLException{
         ControladorTorre ct = new ControladorTorre(new Entrenador("trainer"), new javax.swing.JFrame());
-        ct.crearEquipoAlAzar();
     }
     
     
@@ -40,34 +45,58 @@ public class ControladorTorre {
     public ArrayList<Pokemon> crearEquipoAlAzar() throws SQLException{
         ArrayList<Pokemon> pokemonTorre = new ArrayList<>();
         
-        for (int i = 0; i < 6; i++){
-            pokemonTorre.add(crearPokemonAlAzar());
+        while(pokemonTorre.size() < 6){
+            Pokemon pokemonNuevo = crearPokemonAlAzar();
+            if (pokemonTorre.contains(pokemonNuevo) == false){
+                pokemonTorre.add(pokemonNuevo);
+            }
         }
-        
+
         return pokemonTorre;
     }
     
-    public Entrenador crearEntrenadorOponente(ArrayList<Pokemon> pokemon){
+    public Entrenador crearEntrenadorOponente() throws SQLException{
         Entrenador entrenadorOponente = new Entrenador("Oponente");
+        ArrayList<Pokemon> pokemon = crearEquipoAlAzar();
         entrenadorOponente.setListaPokemons(pokemon);
         return entrenadorOponente;
     }
     
-    public void iniciarNuevaTorre(Entrenador entrenador) throws SQLException{
-        ControladorBatalla cb = new ControladorBatalla(nombreVista);
-        Entrenador entrenadorOponente;
-        
+    public void iniciarNuevaTorre() throws SQLException{
+        //ControladorBatalla cb = new ControladorBatalla(nombreVista);
+        vistaTorre.setVisible(false);
+
+        rachaGanadora = 0;
         System.out.println("Iniciando torre");
-        entrenador.esGanador = true;
-        ArrayList<Pokemon> pokemonEntrenador = crearEquipoAlAzar();
-        entrenador.setListaPokemons(pokemonEntrenador);
         
-        while(entrenador.esGanador){
-            
-            entrenadorOponente = crearEntrenadorOponente(crearEquipoAlAzar());
-            
+        
+        batallaTorreBatalla();
+        
+
+        
+    }
+    
+    public void batallaTorreBatalla() throws SQLException{
+        //Entrenador entrenadorOponente = crearEntrenadorOponente();
+        ArrayList<Pokemon> pokemonEntrenador = crearEquipoAlAzar();
+
+        this.entrenador.setListaPokemons(pokemonEntrenador);
+        
+        //hacer batalla con el entrenador
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Deseas ganar? Ingresa booleano");
+        this.entrenador.esGanador = sc.nextBoolean();                              
+        
+        
+        
+        if (this.entrenador.esGanador){
+            rachaGanadora++;
+            vistaTorre.mostrarVistaCambios(this.entrenador);
         }
         
+        else{
+            vistaTorre.mostrarVentanaDespuesDeBatalla(1, rachaGanadora);
+        }
     }
     
     public Pokemon crearPokemonAlAzar() throws SQLException{
@@ -75,17 +104,21 @@ public class ControladorTorre {
         Random RNG = new Random();
         //Consulto la cantidad de pokemon en la base de datos para utilizarla en el metodo random
         String consultaCantidadPokemon = "SELECT Count(*) AS cantidad FROM POKE.FAMILIA_POKEMON";        
-        int cantidadPokemon = Integer.parseInt(controladorSQL.obtenerResultSetDB(consultaCantidadPokemon, true).getString("cantidad"));
+        //int cantidadPokemon = Integer.parseInt(controladorSQL.obtenerResultSetDB(consultaCantidadPokemon, true).getString("cantidad"));
         //Aun no utilizado ya que la base de datos por ahora no tiene equivalence entre ID pokemon y su numero de columna
-        int pokemonSeleccionado =  RNG.nextInt(cantidadPokemon);
+        //int pokemonSeleccionado =  RNG.nextInt(cantidadPokemon);
 
         // por ahora 111 es un numero fijo, el cual es el pokemon Rhyhorn de nivel 100, todos los pokemon
         // en la torre de batalla son de nivel 100
+        int [] pokemonActuales = {74, 75, 76, 95, 111, 112, 138, 139, 140, 141, 142, 246, 247, 248, 369, 408, 409, 464};
+        int cantidadPokemon = pokemonActuales.length;
+        int pokemonSeleccionado = RNG.nextInt(cantidadPokemon);
+        
         String consultaObtenerPokemon = "select ID_FAMILIAPOKEMON, NOMBRE_FAMILIAPOKEMON, "
                 + "ATAQUEMAX_FAMILIAPOKEMON, ATAQUEESPECIALMAX_FAMILIAPOKEMON, "
                 + "DEFENSAMAX_FAMILIAPOKEMON, DEFENSAESPECIALMAX_FAMILIAPOKEMON, VELOCIDADMAX_FAMILIAPOKEMON, "
                 + "HPMAX_FAMILIAPOKEMON, TIPO_PRIMARIO, TIPO_SECUNDARIO "
-                + "from POKE.FAMILIA_POKEMON WHERE ID_FAMILIAPOKEMON ="+111;
+                + "from POKE.FAMILIA_POKEMON WHERE ID_FAMILIAPOKEMON ="+pokemonActuales[pokemonSeleccionado];
         
         ResultSet datosPokemon = controladorSQL.obtenerResultSetDB(consultaObtenerPokemon, true);
         //ORDEN = ID, NOMBRE, ESPECIE, ATK, SPATK, DEF, SPDEF, VEL, HP, TIPO1, TIPO2
@@ -128,7 +161,71 @@ public class ControladorTorre {
         
         //Genero un nuevo Pokemon con sus datos
         pokemonRandom = new Pokemon(idPokemon, familia, atk, spAtk, def, spDef, hp, tipoPrimario, tipoSecundario);
-
         return pokemonRandom;
+    }
+    
+    public void cambiarPokemon() throws SQLException{
+        Object pokemonSeleccionado = vistaTorre.getValorSeleccionado();
+        ArrayList<Pokemon> nuevosPokemon = this.entrenador.getListaPokemons();
+        System.out.println("---------Pokemon antiguos----------");
+        for (Pokemon pokemon: nuevosPokemon){
+            System.out.println(pokemon.getNombre());
+        }
+        boolean pokemonCambiado = false;
+        
+        while(!pokemonCambiado){
+            for (int i = 0; i < nuevosPokemon.size(); i++){
+                if (nuevosPokemon.get(i).getNombre().equals(pokemonSeleccionado)){
+                    Pokemon nuevoPokemon = crearPokemonAlAzar();
+
+                    if (nuevoPokemon.equals(nuevosPokemon.get(i)) == false){
+                        nuevosPokemon.set(i, nuevoPokemon);
+                        System.out.println("cambiado: "+nuevoPokemon.getNombre());
+                        vistaTorre.actualizarContadorCambios();
+                        pokemonCambiado = true;
+                    }
+                }           
+            }
+        }
+        System.out.println("----------Pokemon nuevos-----------");
+        
+        for (Pokemon pokemon : nuevosPokemon){
+            System.out.println(pokemon.getNombre());
+        }
+        
+        System.out.println("-----------------------------------");
+        
+        this.entrenador.setListaPokemons(nuevosPokemon);
+        vistaTorre.mostrarPokemonEnLista(this.entrenador);
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent ae){
+        int accion = Integer.parseInt(ae.getActionCommand());
+        switch(accion){
+            case 1:
+                break;
+            case 2:
+                try{
+                    iniciarNuevaTorre();
+                } catch (SQLException e){}
+                break;
+            case 3:
+                break;
+            case 4:
+                try{
+                    vistaTorre.esconderVentanaCambios();
+                    batallaTorreBatalla();
+                } catch (SQLException e){}
+            case 6:
+                try{
+                    cambiarPokemon();
+                } catch (SQLException e){}
+                break;
+            default:
+                System.out.println("alguna wea paso");
+                break;
+                   
+        }
     }
 }

@@ -5,12 +5,20 @@
  */
 package Vista;
 
+import Modelo.Entrenador;
+import Modelo.Pokemon;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import javax.swing.ListModel;
+
 /**
  *
  * @author Rafael
  */
 public class VistaTorre extends javax.swing.JDialog {
-
+    private int conteoCambios;
     /**
      * Creates new form VistaTorreDeBatalla
      */
@@ -28,25 +36,279 @@ public class VistaTorre extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        vistaCambioPokemon = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaPokemon = new javax.swing.JList();
+        botonContinuar = new javax.swing.JButton();
+        botonGuardar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        racha = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        botonCambiar = new javax.swing.JButton();
+        botonIniciar = new javax.swing.JButton();
+        botonContinuarTorre = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
+
+        vistaCambioPokemon.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        vistaCambioPokemon.setMinimumSize(new java.awt.Dimension(377, 400));
+        vistaCambioPokemon.setResizable(false);
+
+        jScrollPane1.setHorizontalScrollBar(null);
+
+        listaPokemon.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        listaPokemon.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaPokemonValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(listaPokemon);
+
+        botonContinuar.setText("Continuar");
+        botonContinuar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonContinuarActionPerformed(evt);
+            }
+        });
+
+        botonGuardar.setText("Guardar Progreso");
+        botonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonGuardarActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("¡Felicidades, has sido victorioso!");
+
+        jLabel2.setText("Tu racha actual es:");
+
+        racha.setText("racha");
+
+        jLabel4.setText("Aca puedes cambiar hasta 3 de tus Pokémon");
+
+        jLabel5.setText("por nuevos Pokémon seleccionados al azar.");
+
+        jLabel6.setText("Ademas puedes guardar tu progreso hasta este punto.");
+
+        jLabel7.setText("Selecciona tus Pokémon a cambiar.");
+
+        botonCambiar.setText("Cambiar Pokémon");
+        botonCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambiarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout vistaCambioPokemonLayout = new javax.swing.GroupLayout(vistaCambioPokemon.getContentPane());
+        vistaCambioPokemon.getContentPane().setLayout(vistaCambioPokemonLayout);
+        vistaCambioPokemonLayout.setHorizontalGroup(
+            vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                        .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                                .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(racha))
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                                            .addComponent(jScrollPane1)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(botonGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(botonContinuar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(botonCambiar)))
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)))
+                                .addGap(0, 92, Short.MAX_VALUE)))
+                        .addContainerGap())))
+        );
+        vistaCambioPokemonLayout.setVerticalGroup(
+            vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(racha))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addGap(29, 29, 29)
+                .addGroup(vistaCambioPokemonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(vistaCambioPokemonLayout.createSequentialGroup()
+                        .addComponent(botonCambiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonContinuar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(botonGuardar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        botonIniciar.setText("Iniciar Torre");
+        botonIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonIniciarActionPerformed(evt);
+            }
+        });
+
+        botonContinuarTorre.setText("Continuar Torre");
+
+        botonVolver.setText("Volver a Menu Principal");
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonVolverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(194, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonVolver)
+                    .addComponent(botonContinuarTorre)
+                    .addComponent(botonIniciar))
+                .addGap(63, 63, 63))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(192, Short.MAX_VALUE)
+                .addComponent(botonIniciar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonContinuarTorre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(botonVolver)
+                .addGap(27, 27, 27))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonIniciarActionPerformed
+
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonContinuarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonContinuarActionPerformed
+
+    private void botonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardarActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_botonGuardarActionPerformed
+
+    private void listaPokemonValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaPokemonValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaPokemonValueChanged
+
+    private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCambiarActionPerformed
+
+    
+    
+    public void agregarListeners(ActionListener accion){
+        this.botonContinuarTorre.addActionListener(accion);
+        this.botonIniciar.addActionListener(accion);
+        this.botonVolver.addActionListener(accion);
+        this.botonContinuar.addActionListener(accion);
+        this.botonGuardar.addActionListener(accion);
+        this.botonCambiar.addActionListener(accion);
+        
+        this.botonContinuarTorre.setActionCommand("1");
+        this.botonIniciar.setActionCommand("2");
+        this.botonVolver.setActionCommand("3");
+        this.botonContinuar.setActionCommand("4");
+        this.botonGuardar.setActionCommand("5");
+        this.botonCambiar.setActionCommand("6");
+    }
+    
+    public void mostrarVentanaDespuesDeBatalla(int caso, int rachaGanadora){
+        String string;
+        String newline = System.getProperty("line.separator");
+        switch(caso){
+            case 1:
+                string = "Lamentablemente has perdido, intentalo de nuevo."+newline+ "Tu racha ganadora fue: " + rachaGanadora + " victorias";
+                JOptionPane.showMessageDialog(this, string);
+                break;
+            default:
+                break;
+        }
+    }
+    
+    public void mostrarVistaCambios(Entrenador entrenador){
+        conteoCambios = 0;
+        mostrarPokemonEnLista(entrenador);
+        botonCambiar.setEnabled(true);
+        vistaCambioPokemon.setVisible(true);
+    }
+    
+    public void mostrarPokemonEnLista(Entrenador entrenador){
+        Pokemon [] arrayPokemonEntrenador = entrenador.getListaPokemons().toArray(new Pokemon[entrenador.getListaPokemons().size()]);
+        String [] arrayNombres = new String[6];
+        
+        for (int i = 0; i < 6; i++){
+            arrayNombres[i] = arrayPokemonEntrenador[i].getNombre();
+        }
+        
+        Object [] pokemonEntrenador = (Object[]) arrayNombres;
+        listaPokemon.setListData(pokemonEntrenador);
+        
+    }
+    
+    public Object getValorSeleccionado(){
+       return listaPokemon.getSelectedValue();
+    }
+    
+    public void actualizarContadorCambios(){
+        if (conteoCambios >= 0 && conteoCambios < 3){
+            conteoCambios++;
+            if (conteoCambios == 3){
+                botonCambiar.setEnabled(false);
+            }
+        }          
+    }
+    public void esconderVentanaCambios(){
+        this.vistaCambioPokemon.setVisible(false);
+    }
     /**
      * @param args the command line arguments
      */
+    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -86,7 +348,24 @@ public class VistaTorre extends javax.swing.JDialog {
             }
         });
     }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCambiar;
+    private javax.swing.JButton botonContinuar;
+    private javax.swing.JButton botonContinuarTorre;
+    private javax.swing.JButton botonGuardar;
+    private javax.swing.JButton botonIniciar;
+    private javax.swing.JButton botonVolver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList listaPokemon;
+    private javax.swing.JLabel racha;
+    private javax.swing.JDialog vistaCambioPokemon;
     // End of variables declaration//GEN-END:variables
 }
